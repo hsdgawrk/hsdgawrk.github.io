@@ -1,7 +1,7 @@
 const ap = new APlayer({
     container: document.getElementById('aplayer'),
     fixed: true,
-    autoplay: false,
+    autoplay: true,
     audio: [
         {
             name: "君が好きだと叫びたい／好想大声说爱你（Cover BAAD）",
