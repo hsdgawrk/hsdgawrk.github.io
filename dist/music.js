@@ -4,6 +4,18 @@ const ap = new APlayer({
     autoplay: true,
     audio: [
         {
+            name: '朝汐',
+            artist: '泠鸢yousa，双笙',
+            url: 'http://pfwddfxnm.bkt.clouddn.com/music/0001.%E5%93%94%E5%93%A9%E5%93%94%E5%93%A9-%E3%80%90%E6%98%9F%E7%81%AB%E8%A1%8C%E5%8A%A8%E3%80%91%E6%9C%9D%E6%B1%90%E3%80%90%E6%B3%A0%E9%B8%A2&amp%EF%BC%9B%E5%8F%8C%E7%AC%99%E3%80%91-Chaoxi_Full%20%E6%9C%80%E7%BB%88%E7%89%88%5B%E8%B6%85%E6%B8%85%E7%89%88%5D.mp3',
+            cover: 'https://i0.hdslb.com/bfs/archive/8567fec72badcd1d42f3e11c4d6b1f7da90b5553.jpg',
+        },
+        {
+            name: '春意红包',
+            artist: '三无MarBlue,祖娅纳惜,泠鸢yousa',
+            url: 'http://pfwddfxnm.bkt.clouddn.com/music/%E4%B8%89%E6%97%A0MarBlue,%E7%A5%96%E5%A8%85%E7%BA%B3%E6%83%9C,%E6%B3%A0%E9%B8%A2yousa%20-%20%E6%98%A5%E6%84%8F%E7%BA%A2%E5%8C%85.mp3',
+            cover: 'https://p1.music.126.net/TVOFJLTlo7o1hOPewr5NwA==/109951162857898547.jpg',
+        },
+        {
             name: "君が好きだと叫びたい／好想大声说爱你（Cover BAAD）",
             artist: '茶理理',
             url: 'http://pfwddfxnm.bkt.clouddn.com/music/%E8%8C%B6%E7%90%86%E7%90%86%20-%20%E5%90%9B%E3%81%8C%E5%A5%BD%E3%81%8D%E3%81%A0%E3%81%A8%E5%8F%AB%E3%81%B3%E3%81%9F%E3%81%84%EF%BC%8F%E5%A5%BD%E6%83%B3%E5%A4%A7%E5%A3%B0%E8%AF%B4%E7%88%B1%E4%BD%A0%EF%BC%88Cover%20BAAD%EF%BC%89.mp3',
@@ -32,12 +44,6 @@ const ap = new APlayer({
             artist: '泠鸢yousa,银临',
             url: 'http://pfwddfxnm.bkt.clouddn.com/music/%E6%B3%A0%E9%B8%A2yousa,%E9%93%B6%E4%B8%B4%20-%20%E6%80%80%E6%A2%A6%E4%B9%8B%E6%B3%BD.mp3',
             cover: 'https://p1.music.126.net/6b_OrWggmiepJV1LGPwFWg==/109951163424531701.jpg',
-        },
-        {
-            name: '春意红包',
-            artist: '三无MarBlue,祖娅纳惜,泠鸢yousa',
-            url: 'http://pfwddfxnm.bkt.clouddn.com/music/%E4%B8%89%E6%97%A0MarBlue,%E7%A5%96%E5%A8%85%E7%BA%B3%E6%83%9C,%E6%B3%A0%E9%B8%A2yousa%20-%20%E6%98%A5%E6%84%8F%E7%BA%A2%E5%8C%85.mp3',
-            cover: 'https://p1.music.126.net/TVOFJLTlo7o1hOPewr5NwA==/109951162857898547.jpg',
         }
     ]
 });
