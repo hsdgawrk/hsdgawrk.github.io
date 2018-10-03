@@ -7,7 +7,7 @@ const ap = new APlayer({
             name: '朝汐',
             artist: '泠鸢yousa，双笙',
             url: 'http://pfwddfxnm.bkt.clouddn.com/music/0001.%E5%93%94%E5%93%A9%E5%93%94%E5%93%A9-%E3%80%90%E6%98%9F%E7%81%AB%E8%A1%8C%E5%8A%A8%E3%80%91%E6%9C%9D%E6%B1%90%E3%80%90%E6%B3%A0%E9%B8%A2&amp%EF%BC%9B%E5%8F%8C%E7%AC%99%E3%80%91-Chaoxi_Full%20%E6%9C%80%E7%BB%88%E7%89%88%5B%E8%B6%85%E6%B8%85%E7%89%88%5D.mp3',
-            cover: 'https://i0.hdslb.com/bfs/archive/8567fec72badcd1d42f3e11c4d6b1f7da90b5553.jpg',
+            cover: 'http://pfwk00i2s.bkt.clouddn.com/cover/%E5%B0%81%E9%9D%A2.png',
         },
         {
             name: '春意红包',
