@@ -7,7 +7,7 @@ const ap = new APlayer({
             name: '朝汐',
             artist: '泠鸢yousa，双笙',
             url: 'http://music.163.com/song/media/outer/url?id=1316479227.mp3',
-            cover: 'http://pfwk00i2s.bkt.clouddn.com/cover/%E5%B0%81%E9%9D%A2.png',
+            cover: 'https://p1.music.126.net/yLfVa75LLy0e3cgj4HGYaA==/109951163594033083.jpg',
         },
         {
             name: '春意红包',
