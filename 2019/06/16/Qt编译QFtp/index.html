@@ -86,18 +86,18 @@
 
 
 
-<meta name="description" content="Qt编译QFtpQt到了5. x版本，QFtp类不再作为默认安装的对象，在新版的Qt中，采用QNetworkAccessManager类来代替QFtp。但是只保留了get，push等基本方法，想要采用其他命令则还需QFtp。在编译过程中遇到了几个坑，记录一下。（mingw+QtCreator） 首先使用命令克隆qt官方代码仓库中的qftp（https://code.qt.io/cgit/qt/qt">
+<meta name="description" content="Qt编译QFtpQt到了5. x版本，QFtp类不再作为默认安装的对象，在新版的Qt中，采用QNetworkAccessManager类来代替QFtp。但是只保留了get，push等基本方法，想要采用其他命令则还需QFtp。">
 <meta name="keywords" content="Qt">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Qt编译QFtp">
 <meta property="og:url" content="https://hsdgawrk.github.io/2019/06/16/Qt编译QFtp/index.html">
 <meta property="og:site_name" content="凌波小燕子的博客">
-<meta property="og:description" content="Qt编译QFtpQt到了5. x版本，QFtp类不再作为默认安装的对象，在新版的Qt中，采用QNetworkAccessManager类来代替QFtp。但是只保留了get，push等基本方法，想要采用其他命令则还需QFtp。在编译过程中遇到了几个坑，记录一下。（mingw+QtCreator） 首先使用命令克隆qt官方代码仓库中的qftp（https://code.qt.io/cgit/qt/qt">
+<meta property="og:description" content="Qt编译QFtpQt到了5. x版本，QFtp类不再作为默认安装的对象，在新版的Qt中，采用QNetworkAccessManager类来代替QFtp。但是只保留了get，push等基本方法，想要采用其他命令则还需QFtp。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-06-16T03:43:32.879Z">
+<meta property="og:updated_time" content="2019-06-16T12:06:45.523Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Qt编译QFtp">
-<meta name="twitter:description" content="Qt编译QFtpQt到了5. x版本，QFtp类不再作为默认安装的对象，在新版的Qt中，采用QNetworkAccessManager类来代替QFtp。但是只保留了get，push等基本方法，想要采用其他命令则还需QFtp。在编译过程中遇到了几个坑，记录一下。（mingw+QtCreator） 首先使用命令克隆qt官方代码仓库中的qftp（https://code.qt.io/cgit/qt/qt">
+<meta name="twitter:description" content="Qt编译QFtpQt到了5. x版本，QFtp类不再作为默认安装的对象，在新版的Qt中，采用QNetworkAccessManager类来代替QFtp。但是只保留了get，push等基本方法，想要采用其他命令则还需QFtp。">
 
 
 
@@ -330,7 +330,7 @@
       
 
       
-        <h1 id="Qt编译QFtp"><a href="#Qt编译QFtp" class="headerlink" title="Qt编译QFtp"></a>Qt编译QFtp</h1><p>Qt到了5. x版本，QFtp类不再作为默认安装的对象，在新版的Qt中，采用QNetworkAccessManager类来代替QFtp。但是只保留了get，push等基本方法，想要采用其他命令则还需QFtp。在编译过程中遇到了几个坑，记录一下。（mingw+QtCreator）</p>
+        <h1 id="Qt编译QFtp"><a href="#Qt编译QFtp" class="headerlink" title="Qt编译QFtp"></a>Qt编译QFtp</h1><p>Qt到了5. x版本，QFtp类不再作为默认安装的对象，在新版的Qt中，采用QNetworkAccessManager类来代替QFtp。但是只保留了get，push等基本方法，想要采用其他命令则还需QFtp。<a id="more"></a> 在编译过程中遇到了几个坑，记录一下。（mingw+QtCreator）</p>
 <p>首先使用命令克隆qt官方代码仓库中的qftp（<a href="https://code.qt.io/cgit/qt/qtftp.git/" target="_blank" rel="noopener">https://code.qt.io/cgit/qt/qtftp.git/</a>）。下载之后打开pro文件，找到./src/qftp/qftp.pro文件。将</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">CONFIG += <span class="keyword">static</span></span><br><span class="line">CONFIG -= shared</span><br></pre></td></tr></table></figure>
 <p>更改为</p>

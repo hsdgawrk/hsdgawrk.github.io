@@ -333,33 +333,14 @@
 
       
         
-          
-            <h1 id="Qt编译QFtp"><a href="#Qt编译QFtp" class="headerlink" title="Qt编译QFtp"></a>Qt编译QFtp</h1><p>Qt到了5. x版本，QFtp类不再作为默认安装的对象，在新版的Qt中，采用QNetworkAccessManager类来代替QFtp。但是只保留了get，push等基本方法，想要采用其他命令则还需QFtp。在编译过程中遇到了几个坑，记录一下。（mingw+QtCreator）</p>
-<p>首先使用命令克隆qt官方代码仓库中的qftp（<a href="https://code.qt.io/cgit/qt/qtftp.git/" target="_blank" rel="noopener">https://code.qt.io/cgit/qt/qtftp.git/</a>）。下载之后打开pro文件，找到./src/qftp/qftp.pro文件。将</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">CONFIG += <span class="keyword">static</span></span><br><span class="line">CONFIG -= shared</span><br></pre></td></tr></table></figure>
-<p>更改为</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">CONFIG += <span class="keyword">static</span></span><br><span class="line">CONFIG += shared</span><br></pre></td></tr></table></figure>
-<p>这样之后就可以生成静态库(*.a)和动态链接库(*.dll)文件了。但是此时我编译项目报错：“perl不是内部或外部命令，也不是可运行的程序<br>或批处理文件”，后面跟了一大堆东西。这个错误应该是在编译的时候用到了一个pl文件，而我正好缺少perl。于是便去官网下载（需注册账号，注意在安装过程中一定勾选上那个“在path中创建环境变量”的选项），安装过后重启电脑之后再编译。</p>
-<p>如果提示找不到一个叫“QFtp/qurlinfo.h”的头文件的话，则需要在./src/qftp/Headers/qftp.h中将第三个头文件引用中的</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;QFtp/qurlinfo.h&gt;</span></span></span><br></pre></td></tr></table></figure>
-<p>改成</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;qurlinfo.h&gt;</span></span></span><br></pre></td></tr></table></figure>
-<p>这样再进行编译后就会在./build-qtftp-Qt5_12…/lib中出现libQt5Ftp.a、libQt5Ftpd.a、Qt5Ftp.dll、Qt5Ftp.prl、Qt5Ftpd.dll、Qt5Ftpd.prl几个文件。然后进入<qtdir>/lib文件夹下，将libQt5Ftp.a、libQt5Ftpd.a、Qt5Ftp.prl、Qt5Ftpd.prl粘贴进去，再到<qtdir>/bin中粘贴Qt5Ftpd.dll、Qt5Ftp.dll，之后再去<qtdir>/include/QtNetwork中将修改后的qftp.h和qurlinfo.h粘贴进去并创建一个名为QFtp的文件（无后缀），用记事本打开该文件之后写入一行</qtdir></qtdir></qtdir></p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"qftp.h"</span></span></span><br></pre></td></tr></table></figure>
-<p>保存文件。</p>
-<p>下面回到需要使用QFtp项目的配置文件中添加</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">LIBS += </span><br><span class="line">-lQt5Ftpd \</span><br><span class="line">-lQtNetwork \</span><br></pre></td></tr></table></figure>
-<p>之后就可以在项目的头文件中#include &lt;QtNetwork/QFtp&gt;了</p>
-<p>注意因为这里面Qt5Ftp库需要用到QtNetwork的对象，所以ftp应该在上面。否则在编译的时候会出现 error: undefined reference to `QFtp::QFtp(QObject*)’类似的错误。</p>
-<h2 id="附：Windows10下开启FTP的方法"><a href="#附：Windows10下开启FTP的方法" class="headerlink" title="附：Windows10下开启FTP的方法"></a>附：Windows10下开启FTP的方法</h2><p>打开控制面板-&gt;程序-&gt;启用或关闭Windows功能中找到Internet Information Services勾选FTP服务器下的FTP服务及FTP扩展性（我没有勾选扩展性，到目前为止还没有出过问题）</p>
-<p>在开始菜单中搜索IIS，进入网络信息服务管理器。</p>
-<p>右键网站，添加FTP站点。在弹出窗口中，FTP站点名称一栏是给自己的FTP服务器起名字，物理路径一栏是选择想要通过FTP共享的路径。填写完毕后单击下一步。</p>
-<p>IP地址栏填写本机IP（不知道IP的可以使用cmd中的ipconfig命令查看），端口默认21即可。由于没有SSL证书，所以在SSL那里选“无SSL”，下一步。</p>
-<p>身份验证根据需要勾选，在允许访问的复选框中选择<strong>所有用户</strong>，权限根据需要勾选。之后单击完成</p>
-<p>最后一步据说不设置的话别人无法访问自己的FTP服务器。打开控制面板-&gt;系统和安全-&gt;防火墙-&gt;左边“允许应用和功能通过Windows防火墙”。单击右侧“更改”，将FTP服务器项的“专用”和“公用”都勾上之后再单击右下角的“允许其他应用”按钮，在弹出窗口中选择C:\Windows\System32\svchost.exe将Windows服务主进程添加进来。</p>
-<p>至此关于QFtp和本机FTP的配置全部写完了。</p>
-
-          
+          <h1 id="Qt编译QFtp"><a href="#Qt编译QFtp" class="headerlink" title="Qt编译QFtp"></a>Qt编译QFtp</h1><p>Qt到了5. x版本，QFtp类不再作为默认安装的对象，在新版的Qt中，采用QNetworkAccessManager类来代替QFtp。但是只保留了get，push等基本方法，想要采用其他命令则还需QFtp。
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/06/16/Qt编译QFtp/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
