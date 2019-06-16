@@ -75,7 +75,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="Qt," />
 
 
 
@@ -86,17 +86,18 @@
 
 
 
-<meta name="description" content="Talk less and do more.">
-<meta name="keywords" content="Blog">
-<meta property="og:type" content="website">
-<meta property="og:title" content="凌波小燕子的博客">
-<meta property="og:url" content="https://hsdgawrk.github.io/index.html">
+<meta name="description" content="Qt编译QFtpQt到了5. x版本，QFtp类不再作为默认安装的对象，在新版的Qt中，采用QNetworkAccessManager类来代替QFtp。但是只保留了get，push等基本方法，想要采用其他命令则还需QFtp。在编译过程中遇到了几个坑，记录一下。（mingw+QtCreator） 首先使用命令克隆qt官方代码仓库中的qftp（https://code.qt.io/cgit/qt/qt">
+<meta name="keywords" content="Qt">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Qt编译QFtp">
+<meta property="og:url" content="https://hsdgawrk.github.io/2019/06/16/Qt编译QFtp/index.html">
 <meta property="og:site_name" content="凌波小燕子的博客">
-<meta property="og:description" content="Talk less and do more.">
+<meta property="og:description" content="Qt编译QFtpQt到了5. x版本，QFtp类不再作为默认安装的对象，在新版的Qt中，采用QNetworkAccessManager类来代替QFtp。但是只保留了get，push等基本方法，想要采用其他命令则还需QFtp。在编译过程中遇到了几个坑，记录一下。（mingw+QtCreator） 首先使用命令克隆qt官方代码仓库中的qftp（https://code.qt.io/cgit/qt/qt">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-06-16T03:43:32.879Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="凌波小燕子的博客">
-<meta name="twitter:description" content="Talk less and do more.">
+<meta name="twitter:title" content="Qt编译QFtp">
+<meta name="twitter:description" content="Qt编译QFtpQt到了5. x版本，QFtp类不再作为默认安装的对象，在新版的Qt中，采用QNetworkAccessManager类来代替QFtp。但是只保留了get，push等基本方法，想要采用其他命令则还需QFtp。在编译过程中遇到了几个坑，记录一下。（mingw+QtCreator） 首先使用命令克隆qt官方代码仓库中的qftp（https://code.qt.io/cgit/qt/qt">
 
 
 
@@ -126,13 +127,13 @@
 
 
 
-  <link rel="canonical" href="https://hsdgawrk.github.io/"/>
+  <link rel="canonical" href="https://hsdgawrk.github.io/2019/06/16/Qt编译QFtp/"/>
 
 
 
 
 
-  <title>凌波小燕子的博客</title>
+  <title>Qt编译QFtp | 凌波小燕子的博客</title>
   
 
 
@@ -154,8 +155,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-  page-home">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 <a href="https://github.com/hsdgawrk" class="github-corner" aria-label="View source on Github"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#FD6C6C; color:#fff; position: absolute; top: 0; border: 0; left: 0; transform: scale(-1, 1);" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -248,9 +248,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -280,9 +280,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/06/16/Qt编译QFtp/" itemprop="url">Qt编译QFtp</a></h1>
+          <h1 class="post-title" itemprop="name headline">Qt编译QFtp</h1>
         
 
         <div class="post-meta">
@@ -332,9 +330,7 @@
       
 
       
-        
-          
-            <h1 id="Qt编译QFtp"><a href="#Qt编译QFtp" class="headerlink" title="Qt编译QFtp"></a>Qt编译QFtp</h1><p>Qt到了5. x版本，QFtp类不再作为默认安装的对象，在新版的Qt中，采用QNetworkAccessManager类来代替QFtp。但是只保留了get，push等基本方法，想要采用其他命令则还需QFtp。在编译过程中遇到了几个坑，记录一下。（mingw+QtCreator）</p>
+        <h1 id="Qt编译QFtp"><a href="#Qt编译QFtp" class="headerlink" title="Qt编译QFtp"></a>Qt编译QFtp</h1><p>Qt到了5. x版本，QFtp类不再作为默认安装的对象，在新版的Qt中，采用QNetworkAccessManager类来代替QFtp。但是只保留了get，push等基本方法，想要采用其他命令则还需QFtp。在编译过程中遇到了几个坑，记录一下。（mingw+QtCreator）</p>
 <p>首先使用命令克隆qt官方代码仓库中的qftp（<a href="https://code.qt.io/cgit/qt/qtftp.git/" target="_blank" rel="noopener">https://code.qt.io/cgit/qt/qtftp.git/</a>）。下载之后打开pro文件，找到./src/qftp/qftp.pro文件。将</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">CONFIG += <span class="keyword">static</span></span><br><span class="line">CONFIG -= shared</span><br></pre></td></tr></table></figure>
 <p>更改为</p>
@@ -359,8 +355,6 @@
 <p>最后一步据说不设置的话别人无法访问自己的FTP服务器。打开控制面板-&gt;系统和安全-&gt;防火墙-&gt;左边“允许应用和功能通过Windows防火墙”。单击右侧“更改”，将FTP服务器项的“专用”和“公用”都勾上之后再单击右下角的“允许其他应用”按钮，在弹出窗口中选择C:\Windows\System32\svchost.exe将Windows服务主进程添加进来。</p>
 <p>至此关于QFtp和本机FTP的配置全部写完了。</p>
 
-          
-        
       
     </div>
     
@@ -375,139 +369,36 @@
 
     <footer class="post-footer">
       
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://hsdgawrk.github.io/2018/10/01/你好，Hexo/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="凌波小燕子">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/./images/avatar/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="凌波小燕子的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/10/01/你好，Hexo/" itemprop="url">你好，Hexo</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-10-01T01:52:02+08:00">
-                2018-10-01
-              </time>
-            
-
-            
-
-            
-          </span>
-
+        <div class="post-tags">
           
-
+            <a href="/tags/Qt/" rel="tag"># Qt</a>
           
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
         </div>
-      </header>
-    
+      
 
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
+      
       
       
 
       
-        
-          <h1 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h1><p>首先，一句“<strong>你好，Hexo</strong>”送给辛苦肝了通宵的自己！</p>
-<h1 id="为啥要搞这个东西"><a href="#为啥要搞这个东西" class="headerlink" title="为啥要搞这个东西"></a>为啥要搞这个东西</h1>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/10/01/你好，Hexo/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/10/01/你好，Hexo/" rel="next" title="你好，Hexo">
+                <i class="fa fa-chevron-left"></i> 你好，Hexo
+              </a>
+            
           </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
 
-    
+          <span class="post-nav-divider"></span>
 
-    
-
-    
-
-    <footer class="post-footer">
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
       
 
       
-
-      
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </div>
@@ -517,10 +408,11 @@
   </article>
 
 
-    
-  </section>
 
-  
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -528,6 +420,15 @@
 
 
           
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC80MDA2Ni8xNjU5Mw=="></div>
+    </div>
+
+  
+
+
 
         </div>
         
@@ -548,8 +449,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -622,6 +532,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Qt编译QFtp"><span class="nav-number">1.</span> <span class="nav-text">Qt编译QFtp</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#附：Windows10下开启FTP的方法"><span class="nav-number">1.1.</span> <span class="nav-text">附：Windows10下开启FTP的方法</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -775,6 +701,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
@@ -803,6 +733,17 @@
 
 
 
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
   
 
 
