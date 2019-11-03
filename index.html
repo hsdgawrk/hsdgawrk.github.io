@@ -333,51 +333,15 @@
 
       
         
-          
-            <h2 id="一、在VMWare中安装"><a href="#一、在VMWare中安装" class="headerlink" title="一、在VMWare中安装"></a>一、在VMWare中安装</h2><p>​    虚拟机上装双系统相对是比较简单的，先到VMWare官网上下载VMWare Workstation Player15。</p>
-<p>​    正常安装VM过后，到Ubuntu官网上面下载最新的iso镜像（最好是LTS版本）。下载镜像过后打开VM，单击创建虚拟机，弹出对话框。第一项不做讨论，因为用启动盘装虚拟机实在是多此一举。如果选择第二项，则需要定位iso镜像文件的位置。运气好的话VM会识别出Ubuntu并且使用简易安装，这个方法比较简单，最重要的是分辨率不会出很大的问题。唯一的缺点是默认安装的语言为英语，需要安装好后在设置里面调整。如果想要自己安装的话就选择第三项。选完之后单击下一步</p>
-<p>​    如果选择的安装程序镜像文件的话，则会让你个性化Linux，正确填写用户名、密码和确认密码之后单击下一步然后等待他全自动操作，如果选择稍后安装的话则需要选择你稍后需要安装的系统类型。</p>
-<p>​    选择虚拟机创建的位置，此处最好选择一个剩余空间比较大的磁盘来方便折腾。单击下一步</p>
-<p>​    根据个人需求进行虚拟机磁盘空间大小的分配和存储的方式，单击下一步。确认配置无误之后点击完成。右键单击刚创建的虚拟机，选择设置。在此处根据计算机的性能来合理设置处理器个数、内存大小等参数。此处一定在CD/DVD的使用iso镜像文件一栏选择刚才下载的iso文件，启动虚拟机并按照向导进行操作。（此过程中如果遇到分辩率过低导致的按钮没办法显示在屏幕上的话，鼠标放在窗口内按下alt+f7组合键就可以无视顶栏的限制来肆意移动窗口了。）</p>
-<p>​    写到这里，VMWare上面装Ubuntu就算是完成了。下面来说说简易安装Ubuntu的配置问题。</p>
-<p><code>注：如果在虚拟机里配置了双核或更高的处理器个数的话需要在BIOS里面开启“处理器虚化技术（即VT）”</code></p>
-<h2 id="二、配置简易安装的Ubuntu"><a href="#二、配置简易安装的Ubuntu" class="headerlink" title="二、配置简易安装的Ubuntu"></a>二、配置简易安装的Ubuntu</h2><p>​    经过简易安装的Ubuntu启动后会发现界面是全英文的，这时候就需要更改一下语言了。</p>
-<p>  首先在左下角打开所有程序，找到“软件和更新（英文记不住了，图标是一个包裹旁边一个地球的那个）”在弹出窗口中把选项卡切换到“Ubuntu 软件（即第一个）”，在“下载自”旁边的下拉菜单中选择“其他站点”选项，从中找到“中国”并在下面选一个镜像服务器（我选择的是阿里云的镜像）。</p>
-<p>  等待读条结束之后，再在所有程序中打开设置，在“区域和语言”中找到并单击“Manage installed language（管理已安装的语言）”在弹出的菜单中单击靠下方的按钮，即“添加或删除语言”。在里面找到“Chinese（Simplified）”并勾选它，紧接着他就会联网下载语言包了。</p>
-<p>  等待下载结束以后关闭该窗口，在“语言支持”窗口的滚动菜单中找到刚刚安装的语言，把它<strong>拖动</strong>到最上方之后单击“应用到整个系统（英文记不起来了=w=）”，然后关闭窗口。</p>
-<p>  下一步要去单击输入源下面的“+”按钮，就可以看到“Chinese”选项了，点进去之后选择“Chinese（Intelligent Pinyin）”而不是“Chinese”。<code>注：如果没有前面说的“Chinese（Intelligent Pinyin）”，则需要查看前面步骤是否有误。</code></p>
-<p>  所有操作结束之后便可以注销账户，重新登陆后不出意外就是中文了。输入法的切换是使用“super+空格”来完成的。</p>
-<h2 id="三、卸载VMWare中的Ubuntu"><a href="#三、卸载VMWare中的Ubuntu" class="headerlink" title="三、卸载VMWare中的Ubuntu"></a>三、卸载VMWare中的Ubuntu</h2><p>太简单了，直接在虚拟机管理中干掉它就完了。</p>
-<h2 id="四、使用U盘安装Ubuntu（将电脑做成双系统）"><a href="#四、使用U盘安装Ubuntu（将电脑做成双系统）" class="headerlink" title="四、使用U盘安装Ubuntu（将电脑做成双系统）"></a>四、使用U盘安装Ubuntu（将电脑做成双系统）</h2><p>  首先我们需要一个U盘（废话！）4G+大小，<strong>文件格式NTFS</strong>（FAT32的兄弟们去默默格式化吧）。格式化U盘</p>
-<p>  用随便什么烧录软件（像是UltraISO）把在Ubuntu官网下载的iso镜像烧录进去，此时U盘就变成了启动盘。</p>
-<p>  使用win+x组合键，找到“磁盘管理”，通过“压缩卷”来给Ubuntu腾出合适的空间（我从我空间最大的盘里压缩了50G）.</p>
-<p>  在设置-&gt;系统-&gt;电源和睡眠-&gt;其他电源设置-&gt;选择电源按钮的功能-&gt;更改当前不可用的设置（仅适用于win10）或是直接在控制面板-&gt;所有控制面板项-&gt;电源选项-&gt;系统设置-&gt;更改当前不可用的设置（适用于所有系统）中，将“启用快速启动（推荐）”的复选框点掉，如果没有快速启动选项的话忽略即可。禁用快速启动的目的是防止双系统引导的时候出现问题。</p>
-<p>  重启计算机，打开电脑的BIOS，如果有“安全启动（Security Boot）”的话，请关掉，没有的话忽略即可。然后和装其他系统一样，把刚才的启动盘放到启动项的第一位。（如果出现多个U盘启动项的话，记得选择UEFI的那个）</p>
-<p>  再次重启电脑之后进入Ubuntu的安装界面，在提示选项中选择“install Ubuntu”之后等待安装向导。前面的设置可以根据实际情况或者个人喜好选择，但是在“安装类型”处务必选择『其他选项』<code>注：（此步骤中三个选项分别为1.安装Ubuntu，与Windows共存。2.清除整个磁盘安装Ubuntu。3.其他选项。）</code></p>
-<p>  在接下来的步骤中找到名为“空闲”的设备，并且确保其大小接近之前分区的大小。开始对Ubuntu进行分区。</p>
-<p><code>注：关于Linux的主要分区：</code></p>
-<ol>
-<li><code>/：存储系统文件，建议10GB ~ 15GB；</code> </li>
-<li><code>swap：交换分区，即Linux系统的虚拟内存，建议是物理内存的2倍；</code></li>
-<li><code>/home：home目录，存放音乐、图片及下载等文件的空间，建议最后分配所有剩下的空间；</code>  </li>
-<li><code>/boot：包含系统内核和系统启动所需的文件，实现双系统的关键所在，建议200M。</code> </li>
-</ol>
-<p>  <strong>选中之前的空闲分区</strong>之后点击左下角的“+”符号。首先分配16G（约16384MB）给“/”分区（选择“主分区”、“空间起始位置”、“Ext4”、“挂载点‘/’”）</p>
-<p>  接着用相同的操作来为“交换空间”分配16G<code>（注：如果出现“安装系统时空闲分区不可用”的提示，请将分区类型下的“主分区”改为“逻辑分区”）</code>，为“/boot”分区分配200MB，然后将剩下的所有空间分配给“/home”挂载点。</p>
-<p>  之后在下方的“安装启动引导器的设备”一栏的下拉菜单中选择上方挂载点为“/boot”的设备。<strong>一定确保该栏所示盘符与上方“/boot”盘符一样</strong>之后单击下一步。</p>
-<p>  如果一切顺利的话就开始系统安装了。<code>（注：如果出现因分辨率问题导致的对话框显示不全的话，鼠标放在标题栏，然后按super（WIN）+f7组合键来让窗口无限制地移动）</code></p>
-<p>  安装完成之后会提示重启计算机进入系统。如果可以顺利重启的的话，记得先把BIOS里面的启动设备顺序换过来或者是拔掉U盘。如果无法顺利重启，例如出现卡紫屏、报错等情况的话，多半是因为n卡的驱动问题。强制关机后按照下面步骤进行。</p>
-<h2 id="五、如果出现了一些问题（Nvidia独立显卡bug）"><a href="#五、如果出现了一些问题（Nvidia独立显卡bug）" class="headerlink" title="五、如果出现了一些问题（Nvidia独立显卡bug）"></a>五、如果出现了一些问题（Nvidia独立显卡bug）</h2><p>  强制关机之后，在前面步骤正确执行的情况下，会在电脑启动时弹出GRUB的系统选择界面。光标选中Ubuntu并在倒计时结束前按下e。在之后的编辑页面中找到“linux …….”行，在该行最后添加一个空格，之后输入“nomodeset”，输入完毕后按f10继续引导Ubuntu（或者是进入recovery模式也可以）。</p>
-<p>  之后没有意外的话会以一个超低的分辨率来运行Ubuntu，在登陆进系统之后，使用ctrl+alt+T调出终端。键入命令</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo add-apt-repository ppa:graphics-drivers/ppa</span><br><span class="line">sudo apt update</span><br></pre></td></tr></table></figure>
-<p>之后进行显卡的识别，在终端中输入命令：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ubuntu-drivers devices</span><br></pre></td></tr></table></figure>
-<p>之后会显示正在使用的显卡型号和可用驱动，找到后面带有“recommend”的驱动（我的1050ti是440版本），之后执行命令</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install nvidia-driver-440</span><br></pre></td></tr></table></figure>
-<p>安装驱动后重启机器即可。</p>
-<h2 id="六、删除Ubuntu系统"><a href="#六、删除Ubuntu系统" class="headerlink" title="六、删除Ubuntu系统"></a>六、删除Ubuntu系统</h2><p>  在Windows下将Ubuntu盘格式化之后使用EasyUEFI或者EasyBCD删掉启动项即可。</p>
-
-          
+          <h2 id="一、在VMWare中安装"><a href="#一、在VMWare中安装" class="headerlink" title="一、在VMWare中安装"></a>一、在VMWare中安装</h2><p>​    虚拟机上装双系统相对是比较简单的，先到VMWare官网上下载VMWare Workstation Player15。</p>
+<p>​    正常安装VM过后，到Ubuntu官网上面下载最新的iso镜像（最好是LTS版本）。下载镜像过后打开VM，单击创建虚拟机，弹出对话框。
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/11/03/Ubuntu18-04从安装到卸载/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
