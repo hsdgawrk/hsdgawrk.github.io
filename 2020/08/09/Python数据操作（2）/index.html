@@ -1,0 +1,822 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-center-radar.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="生产实习上课笔记," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="数据操作将数据挑选出来之后，我们通常要根据需求对数据进行进一步的操作，比如数值替换、排序、计数等等 数值操作主要有：数值替换、数值排序、数值删除、插入新的行或列、apply和applymap函数。">
+<meta name="keywords" content="生产实习上课笔记">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python数据操作（2）">
+<meta property="og:url" content="https://hsdgawrk.github.io/2020/08/09/Python数据操作（2）/index.html">
+<meta property="og:site_name" content="凌波小燕子的博客">
+<meta property="og:description" content="数据操作将数据挑选出来之后，我们通常要根据需求对数据进行进一步的操作，比如数值替换、排序、计数等等 数值操作主要有：数值替换、数值排序、数值删除、插入新的行或列、apply和applymap函数。">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2020-08-09T04:36:54.037Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Python数据操作（2）">
+<meta name="twitter:description" content="数据操作将数据挑选出来之后，我们通常要根据需求对数据进行进一步的操作，比如数值替换、排序、计数等等 数值操作主要有：数值替换、数值排序、数值删除、插入新的行或列、apply和applymap函数。">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://hsdgawrk.github.io/2020/08/09/Python数据操作（2）/"/>
+
+
+
+
+
+  <title>Python数据操作（2） | 凌波小燕子的博客</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+<link rel="stylesheet" href="/dist/APlayer.min.css">
+<div id="aplayer"></div>
+<script type="text/javascript" src="/dist/APlayer.min.js"></script>
+<script type="text/javascript" src="/dist/music.js"></script>
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+<a href="https://github.com/hsdgawrk" class="github-corner" aria-label="View source on Github"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#FD6C6C; color:#fff; position: absolute; top: 0; border: 0; left: 0; transform: scale(-1, 1);" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">凌波小燕子的博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Stay hungry，stay foolish.</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://hsdgawrk.github.io/2020/08/09/Python数据操作（2）/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="凌波小燕子">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/./images/avatar/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="凌波小燕子的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Python数据操作（2）</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-08-09T12:36:21+08:00">
+                2020-08-09
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="数据操作"><a href="#数据操作" class="headerlink" title="数据操作"></a>数据操作</h1><p>将数据挑选出来之后，我们通常要根据需求对数据进行进一步的操作，比如数值替换、排序、计数等等</p>
+<p>数值操作主要有：数值替换、数值排序、数值删除、插入新的行或列、apply和applymap函数。<a id="more"></a></p>
+<h2 id="数值替换"><a href="#数值替换" class="headerlink" title="数值替换"></a>数值替换</h2><h3 id="一对一的替换"><a href="#一对一的替换" class="headerlink" title="一对一的替换"></a>一对一的替换</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">df = pd.read_excel(<span class="string">r'数值操作.xlsx'</span>)</span><br><span class="line"></span><br><span class="line">df.replace(<span class="string">'张天峰'</span>, <span class="string">'张三丰'</span>) <span class="comment"># 返回一个新的DataFrame。是一个“凡是...则...”修改</span></span><br></pre></td></tr></table></figure>
+<h3 id="一对多的替换"><a href="#一对多的替换" class="headerlink" title="一对多的替换"></a>一对多的替换</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df.replace([<span class="number">2698</span>, <span class="number">1390</span>, <span class="number">1029</span>], <span class="number">999</span>) <span class="comment"># 将表格中包含列表中的数值全部替换成999，返回新的DataFrame, 是一个“凡是...则...”修改</span></span><br></pre></td></tr></table></figure>
+<h3 id="多对多替换"><a href="#多对多替换" class="headerlink" title="多对多替换"></a>多对多替换</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df.replace(&#123;<span class="number">2698</span> : <span class="number">999</span>, <span class="number">1029</span> : <span class="number">1000</span>&#125;) <span class="comment"># 将表格中的所有2698替换成999，将所有的1029替换成1000，返回新的DataFrame, 是一个“凡是...则...”修改。实际上是一个多点替换，只能实现点对点替换</span></span><br></pre></td></tr></table></figure>
+<h3 id="条件替换"><a href="#条件替换" class="headerlink" title="条件替换"></a>条件替换</h3><p><em>在后面“apply和applymap的用法”中有讲解</em></p>
+<h2 id="数值排序"><a href="#数值排序" class="headerlink" title="数值排序"></a>数值排序</h2><h3 id="根据某一列数据进行排序"><a href="#根据某一列数据进行排序" class="headerlink" title="根据某一列数据进行排序"></a>根据某一列数据进行排序</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df.sort_values(by = <span class="string">'消费金额'</span>, ascending = <span class="keyword">False</span>)</span><br></pre></td></tr></table></figure>
+<h3 id="根据多列数据进行排序"><a href="#根据多列数据进行排序" class="headerlink" title="根据多列数据进行排序"></a>根据多列数据进行排序</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df.srot_values(by = [<span class="string">'消费金额'</span>, <span class="string">'年龄'</span>], ascending = [<span class="keyword">False</span>, <span class="keyword">True</span>]) <span class="comment"># ascending有优先级，如果第一优先级重了则考虑第二优先级，以此类推</span></span><br></pre></td></tr></table></figure>
+<h2 id="数值删除"><a href="#数值删除" class="headerlink" title="数值删除"></a>数值删除</h2><h3 id="删除NaN值"><a href="#删除NaN值" class="headerlink" title="删除NaN值"></a>删除NaN值</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df.dropna() <span class="comment"># 只能删除数据类型为np.nan的值</span></span><br></pre></td></tr></table></figure>
+<h3 id="按列删除"><a href="#按列删除" class="headerlink" title="按列删除"></a>按列删除</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">df.drop([<span class="string">'消费金额'</span>, <span class="string">'购买日期'</span>], axis = <span class="number">1</span>) <span class="comment"># drop()默认删行。按列删除的话需要传入列名，之后再指定axis参数（1为列，0为行）, 非原地修改，需要指定inplace = True</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 或者使用</span></span><br><span class="line">df.drop(columns = [<span class="string">'消费金额'</span>, <span class="string">'购买日期'</span>]) <span class="comment"># 由于指定了columns参数，所以不需要指定axis参数</span></span><br></pre></td></tr></table></figure>
+<h3 id="根据列的位置索引进行删除"><a href="#根据列的位置索引进行删除" class="headerlink" title="根据列的位置索引进行删除"></a>根据列的位置索引进行删除</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">df.drop(df.columns[[<span class="number">4</span>, <span class="number">5</span>]], axis = <span class="number">1</span>) <span class="comment"># 没使用columns参数，所以还是要带上axis=1</span></span><br><span class="line">df.drop(df.columns[[<span class="number">1</span>: <span class="number">5</span>]], axis = <span class="number">1</span>) <span class="comment"># 也可以使用切片语法，适合于删除连续的列</span></span><br></pre></td></tr></table></figure>
+<h3 id="删除行"><a href="#删除行" class="headerlink" title="删除行"></a>删除行</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">df.drop([<span class="number">0</span>, <span class="number">1</span>, <span class="number">3</span>]) <span class="comment"># 这种方式必须传行的标签值，只有当行标签为默认的数字时，才能传数字</span></span><br><span class="line"></span><br><span class="line">df.drop(df.index[<span class="number">1</span>:<span class="number">4</span>]) <span class="comment"># 通过index来删行</span></span><br></pre></td></tr></table></figure>
+<h2 id="插入新的数据"><a href="#插入新的数据" class="headerlink" title="插入新的数据"></a>插入新的数据</h2><p>插入操作两个关键要素：</p>
+<ol>
+<li>在哪里插入？</li>
+<li>要插入什么？</li>
+</ol>
+<p>pandas无单独的行插入操作，所以在插入行的时候需要将DataFrame拆分再合并，插入新行在DataFrame的拆分中会有体现。</p>
+<h3 id="插入列"><a href="#插入列" class="headerlink" title="插入列"></a>插入列</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df.insert(<span class="number">2</span>， <span class="string">'新列'</span>, [i <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">10</span>)]) <span class="comment"># 在第三列处插入新的列。第一个参数是列的索引，第二个参数是新列的列名,第三个参数是新列里面的值，该方法会原地生效</span></span><br></pre></td></tr></table></figure>
+<p><em>insert方法比较适合于在指定位置插入新列</em></p>
+<h3 id="在DataFrame最后插入新列"><a href="#在DataFrame最后插入新列" class="headerlink" title="在DataFrame最后插入新列"></a>在DataFrame最后插入新列</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df[<span class="string">'另外的新列'</span>] = [random.random() <span class="keyword">for</span> _ <span class="keyword">in</span> range(<span class="number">10</span>)] <span class="comment"># 注意for _ in range(10)中_的使用</span></span><br></pre></td></tr></table></figure>
+<h2 id="apply-和applymap-函数的使用"><a href="#apply-和applymap-函数的使用" class="headerlink" title="apply()和applymap()函数的使用"></a>apply()和applymap()函数的使用</h2><h3 id="apply（）方法"><a href="#apply（）方法" class="headerlink" title="apply（）方法"></a>apply（）方法</h3><p>apply()方法作用于列</p>
+<h4 id="替换"><a href="#替换" class="headerlink" title="替换"></a>替换</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">df[<span class="string">'消费金额'</span>].apply(<span class="keyword">lambda</span> x : str(x) + <span class="string">'元'</span>) <span class="comment"># 为消费金额所有元素后面加上单位</span></span><br><span class="line"></span><br><span class="line">df[<span class="string">'带单位的消费金额'</span>] = df[<span class="string">'消费金额'</span>].apply(<span class="keyword">lambda</span> x : str(x) + <span class="string">'元'</span>) <span class="comment"># 生成新列</span></span><br></pre></td></tr></table></figure>
+<h4 id="applymap-方法"><a href="#applymap-方法" class="headerlink" title="applymap()方法"></a>applymap()方法</h4><p>applymap()方法<strong><em>作用于DataFrame中的每个元素</em></strong>，所以一定<strong>注意数据类型</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df.applymap(<span class="keyword">lambda</span> x : str(x) + <span class="string">'OK'</span>) <span class="comment"># 整个DataFrame中所有元素字符串‘OK’</span></span><br></pre></td></tr></table></figure>
+<h4 id="针对行来进行数据处理"><a href="#针对行来进行数据处理" class="headerlink" title="针对行来进行数据处理"></a>针对行来进行数据处理</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">df.iloc[<span class="number">2</span>].apply(<span class="keyword">lambda</span> x: str(x) + <span class="string">'good'</span>) <span class="comment"># 针对某一行,后面所有元素加上good</span></span><br><span class="line"></span><br><span class="line">df.iloc[<span class="number">5</span> : <span class="number">9</span>].applymap(<span class="keyword">lambda</span> x : str(x) + <span class="string">'good'</span>) <span class="comment"># 由于iloc返回的还是DataFrame，所以还是使用applymap()</span></span><br></pre></td></tr></table></figure>
+<p><strong>apply()方法只能用于一行/一列数据（Series），applymap()方法适用于DataFrame</strong></p>
+<h4 id="条件修改"><a href="#条件修改" class="headerlink" title="条件修改"></a>条件修改</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df[<span class="string">'消费金额'</span>].apply(<span class="keyword">lambda</span> x : <span class="number">499</span> <span class="keyword">if</span> x &lt;= <span class="number">500</span> <span class="keyword">else</span> <span class="number">999</span> <span class="keyword">if</span> x &gt;= <span class="number">1000</span> <span class="keyword">else</span> x) <span class="comment"># 使用lambda表达式来确定x。注意多分支时lambda表达式的写法</span></span><br></pre></td></tr></table></figure>
+<p><strong>注：</strong></p>
+<p><strong>lambda语句中单个语句的写法：语句 if 判断条件 else 语句</strong></p>
+<p><strong>lambda表达式中多个if的语法：语句 if 判断条件 else 语句 if 判断条件 else 语句</strong></p>
+<h2 id="数据运算"><a href="#数据运算" class="headerlink" title="数据运算"></a>数据运算</h2><p>常见的运算方法有：算术运算、比较运算、汇总运算等</p>
+<h3 id="算术运算"><a href="#算术运算" class="headerlink" title="算术运算"></a>算术运算</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">df = pd.read_excel(<span class="string">r'数据运算.xlsx'</span>)</span><br><span class="line"></span><br><span class="line">df[<span class="string">'两年之和'</span>] = df[<span class="string">'Sale2015'</span>] + df[<span class="string">'Sale2016'</span>] <span class="comment"># 加减乘除都可以</span></span><br></pre></td></tr></table></figure>
+<h3 id="比较运算"><a href="#比较运算" class="headerlink" title="比较运算"></a>比较运算</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df[df[<span class="string">'Sale2020'</span>] &lt; <span class="number">3600</span>]</span><br></pre></td></tr></table></figure>
+<h3 id="汇总运算"><a href="#汇总运算" class="headerlink" title="汇总运算"></a>汇总运算</h3><h4 id="求和"><a href="#求和" class="headerlink" title="求和"></a>求和</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df[<span class="string">'Sale2015'</span>].sum()</span><br></pre></td></tr></table></figure>
+<h4 id="求值的个数"><a href="#求值的个数" class="headerlink" title="求值的个数"></a>求值的个数</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df[<span class="string">'Sale2015'</span>].count()</span><br></pre></td></tr></table></figure>
+<h4 id="求平均值"><a href="#求平均值" class="headerlink" title="求平均值"></a>求平均值</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df[<span class="string">'Sale2015'</span>].mean()</span><br></pre></td></tr></table></figure>
+<h4 id="最大值"><a href="#最大值" class="headerlink" title="最大值"></a>最大值</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df[<span class="string">'Sale2015'</span>].max()</span><br></pre></td></tr></table></figure>
+<h4 id="最小值"><a href="#最小值" class="headerlink" title="最小值"></a>最小值</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df[<span class="string">'Sale2015'</span>].min()</span><br></pre></td></tr></table></figure>
+<h4 id="中位数"><a href="#中位数" class="headerlink" title="中位数"></a>中位数</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df[<span class="string">'Sale2015'</span>].median()</span><br></pre></td></tr></table></figure>
+<h4 id="众数"><a href="#众数" class="headerlink" title="众数"></a>众数</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df[<span class="string">'Sale2015'</span>].mode()</span><br></pre></td></tr></table></figure>
+<h4 id="方差"><a href="#方差" class="headerlink" title="方差"></a>方差</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df[<span class="string">'Sale2015'</span>].var()</span><br></pre></td></tr></table></figure>
+<h4 id="标准差"><a href="#标准差" class="headerlink" title="标准差"></a>标准差</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df[<span class="string">'Sale2015'</span>].std()</span><br></pre></td></tr></table></figure>
+<h4 id="分位数"><a href="#分位数" class="headerlink" title="分位数"></a>分位数</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df[<span class="string">'Sale2015'</span>].quantile(q = <span class="number">0.25</span>) <span class="comment"># 1/4分位数</span></span><br></pre></td></tr></table></figure>
+<h2 id="时间序列操作"><a href="#时间序列操作" class="headerlink" title="时间序列操作"></a>时间序列操作</h2><p>时间序列是一种经常遇到的数据集合。python中获取当前的时间及年月日</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> datetime <span class="keyword">import</span> datetime</span><br><span class="line"></span><br><span class="line">datetime.now() <span class="comment"># 当前的日期时间</span></span><br><span class="line">datetime.now().year() <span class="comment"># 当前的年,依此类推，月：month()；日：day()；等等</span></span><br><span class="line"></span><br><span class="line">datetime.now().weekday() <span class="comment"># 判断今天是星期几，返回值+1</span></span><br><span class="line">datetime.now().isocalendar() <span class="comment"># 获取当前时间是一年中的第几周以及当前是星期几,返回值是[年，周，星期几]</span></span><br><span class="line"></span><br><span class="line">datetime.now().strftime(<span class="string">'%F'</span> <span class="string">'%D'</span>) <span class="comment"># 指定时间的显示格式,%F格式是2020-07-08，%D格式是07/08/2020</span></span><br></pre></td></tr></table></figure>
+<h3 id="pandas提供的日期时间的常见操作"><a href="#pandas提供的日期时间的常见操作" class="headerlink" title="pandas提供的日期时间的常见操作"></a>pandas提供的日期时间的常见操作</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">df = pd.read_excel(<span class="string">r'时间序列.xlsx'</span>, index_col[<span class="number">3</span>]) <span class="comment"># 如果里面的时间不能被pandas识别，则需要给定parse_dates参数.此处第三列是pandas可识别的datetime，所以可以直接把它作为索引</span></span><br><span class="line"></span><br><span class="line">df[<span class="string">'2019'</span>] <span class="comment"># 返回2019年内的所有数据</span></span><br><span class="line">df[<span class="string">'2019-08'</span>] <span class="comment"># 返回2019年8月的所有数据</span></span><br><span class="line">df[<span class="string">'2019-08-01'</span> : <span class="string">'2019-08-20'</span>] <span class="comment"># 返回2019-08-01到2019-08-20时间段内的所有数据</span></span><br></pre></td></tr></table></figure>
+<p><strong>注：<em>这种方法使用的前提必须将时间设置为索引</em></strong></p>
+<h3 id="时间索引变成普通索引"><a href="#时间索引变成普通索引" class="headerlink" title="时间索引变成普通索引"></a>时间索引变成普通索引</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df.reset_index() <span class="comment"># 去掉了日期列的索引属性。该方法非原地生效，需要指定inplace = True</span></span><br></pre></td></tr></table></figure>
+<h3 id="时间类型做比较运算"><a href="#时间类型做比较运算" class="headerlink" title="时间类型做比较运算"></a>时间类型做比较运算</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">df[df[<span class="string">'购买日期'</span>] &gt; <span class="string">'2019-08-10'</span>] <span class="comment"># 可以直接使用字符串</span></span><br><span class="line"></span><br><span class="line">df[df[<span class="string">'购买日期'</span>] &gt; datetime(<span class="number">2019</span>,<span class="number">9</span>,<span class="number">10</span>)] <span class="comment"># 使用datetime构造也可以</span></span><br></pre></td></tr></table></figure>
+<h3 id="计算时间偏移"><a href="#计算时间偏移" class="headerlink" title="计算时间偏移"></a>计算时间偏移</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> datetime <span class="keyword">import</span> timedata</span><br><span class="line"></span><br><span class="line">date = datetime(<span class="number">2020</span>, <span class="number">3</span>, <span class="number">20</span>, <span class="number">19</span>, <span class="number">50</span>) <span class="comment"># 构造一个时间</span></span><br><span class="line">date + timedata(days = <span class="number">1</span>) <span class="comment"># 增加天数，时分秒月日以此类推</span></span><br></pre></td></tr></table></figure>
+<h3 id="利用pandas自带的库来进行时间偏移运算"><a href="#利用pandas自带的库来进行时间偏移运算" class="headerlink" title="利用pandas自带的库来进行时间偏移运算"></a>利用pandas自带的库来进行时间偏移运算</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> pandas.tseries.offsets <span class="keyword">import</span> Day, Hour, Minute</span><br><span class="line"></span><br><span class="line">date + Day(<span class="number">1</span>) <span class="comment"># 加一天</span></span><br><span class="line">date + Hour(<span class="number">1</span>) <span class="comment"># 加一小时</span></span><br><span class="line">date + Minute(<span class="number">10</span>) <span class="comment"># 加10分钟，加满不会进位到小时</span></span><br></pre></td></tr></table></figure>
+<h2 id="DataFrame的拼接操作"><a href="#DataFrame的拼接操作" class="headerlink" title="DataFrame的拼接操作"></a>DataFrame的拼接操作</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">df1 = pd.read_excel(<span class="string">r'数据拼接.xlsx'</span>, sheet_name = <span class="string">'data1'</span>)</span><br><span class="line">df1 = pd.read_excel(<span class="string">r'数据拼接.xlsx'</span>, sheet_name = <span class="string">'data2'</span>) <span class="comment"># 读入一个文件的两个sheet</span></span><br><span class="line"></span><br><span class="line">pd.concat([df1, df2], ignore_index = <span class="keyword">True</span>) <span class="comment"># 默认是行方向的拼接, 后面的参数忽略掉以前的index，重新编号</span></span><br></pre></td></tr></table></figure>
+<p><strong>注:如果拼接的两个元素的列个数不同，则少的那一列会用NaN填充</strong></p>
+<h4 id="列方向拼接"><a href="#列方向拼接" class="headerlink" title="列方向拼接"></a>列方向拼接</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pd.concat([df1, df2], axis = <span class="number">1</span>) <span class="comment"># 没有的值置为NaN</span></span><br></pre></td></tr></table></figure>
+<h3 id="如何插入一行新的数据"><a href="#如何插入一行新的数据" class="headerlink" title="如何插入一行新的数据"></a>如何插入一行新的数据</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">df_first = df[<span class="number">0</span> : <span class="number">5</span>]</span><br><span class="line">df_second = df[<span class="number">5</span>:]</span><br><span class="line"></span><br><span class="line">df_new = pd.DataFrame(&#123;<span class="string">'订单编号'</span>: <span class="string">'A076'</span>,</span><br><span class="line">                    <span class="string">'客户姓名'</span> : <span class="string">'老八'</span>,</span><br><span class="line">                    <span class="string">'唯一识别码'</span> : <span class="number">888</span>,</span><br><span class="line">                    <span class="string">'购买日期'</span> : <span class="string">'2019-08-18'</span>,</span><br><span class="line">                    <span class="string">'年龄'</span> : <span class="number">30</span>,</span><br><span class="line">                    <span class="string">'消费金额'</span> : <span class="number">8888</span>&#125;, index=[<span class="number">1</span>])</span><br><span class="line"></span><br><span class="line">pd.concat([df_first, df_new, df_second], ignore_index = <span class="keyword">True</span>) <span class="comment"># 先拆分再拼接</span></span><br></pre></td></tr></table></figure>
+<h2 id="数据分组"><a href="#数据分组" class="headerlink" title="数据分组"></a>数据分组</h2><h3 id="按照单列进行统计"><a href="#按照单列进行统计" class="headerlink" title="按照单列进行统计"></a>按照单列进行统计</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">df = pd.read_excel(<span class="string">r'数据分组.xlsx'</span>)</span><br><span class="line"></span><br><span class="line">df.groupby(<span class="string">'学生ID'</span>) <span class="comment"># 按照“学生ID”来分组</span></span><br><span class="line">df.groupby(<span class="string">'学生ID'</span>).count() <span class="comment"># 来统计每个组的个数</span></span><br><span class="line">df.groupby(<span class="string">'学生ID'</span>).sum() <span class="comment"># sum操作只针对于数值类型的列，类型不符合的话不参与计算</span></span><br></pre></td></tr></table></figure>
+<h3 id="按照多列进行统计"><a href="#按照多列进行统计" class="headerlink" title="按照多列进行统计"></a>按照多列进行统计</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">df.groupby([<span class="string">'学生ID'</span>, <span class="string">'科目'</span>]).count() <span class="comment"># 按照学生ID和科目一起统计。先按照学生进行分组，再按照每个学生的科目进行分组</span></span><br><span class="line">df.groupby([<span class="string">'学生ID'</span>, <span class="string">'科目'</span>])[<span class="string">'授课老师'</span>].count() <span class="comment"># 可以只取出感兴趣的列</span></span><br></pre></td></tr></table></figure>
+<h3 id="aggregate-方法的使用"><a href="#aggregate-方法的使用" class="headerlink" title="aggregate()方法的使用"></a>aggregate()方法的使用</h3><p>它可以同时在指定的统计列上做不同的统计计算</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">df.groupby(<span class="string">'所在年级'</span>)[<span class="string">'成绩'</span>].aggregate([<span class="string">'count'</span>, <span class="string">'sum'</span>]) <span class="comment"># 对所选列同时做两种不同的操作</span></span><br><span class="line"></span><br><span class="line">df.groupby(<span class="string">'所在年级'</span>).aggregate(&#123;<span class="string">'科目'</span> : <span class="string">'count'</span>, <span class="string">'成绩'</span> : <span class="string">'mean'</span>&#125;) <span class="comment"># 不同的列做不同的计算</span></span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/生产实习上课笔记/" rel="tag"># 生产实习上课笔记</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/08/09/Python读取数据、数据操作/" rel="next" title="Python读取数据、数据操作">
+                <i class="fa fa-chevron-left"></i> Python读取数据、数据操作
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/08/09/Python利用Pandas导出结果、数据可视化/" rel="prev" title="Python利用Pandas导出结果、数据可视化">
+                Python利用Pandas导出结果、数据可视化 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC80MDA2Ni8xNjU5Mw=="></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/./images/avatar/avatar.jpg"
+                alt="凌波小燕子" />
+            
+              <p class="site-author-name" itemprop="name">凌波小燕子</p>
+              <p class="site-description motion-element" itemprop="description">Talk less and do more.</p>
+          </div>
+
+
+          
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/hsdgawrk" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://weibo.com/u/3248548900" target="_blank" title="新浪微博">
+                      
+                        <i class="fa fa-fw fa-weibo"></i>新浪微博</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#数据操作"><span class="nav-number">1.</span> <span class="nav-text">数据操作</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#数值替换"><span class="nav-number">1.1.</span> <span class="nav-text">数值替换</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#一对一的替换"><span class="nav-number">1.1.1.</span> <span class="nav-text">一对一的替换</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#一对多的替换"><span class="nav-number">1.1.2.</span> <span class="nav-text">一对多的替换</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#多对多替换"><span class="nav-number">1.1.3.</span> <span class="nav-text">多对多替换</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#条件替换"><span class="nav-number">1.1.4.</span> <span class="nav-text">条件替换</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数值排序"><span class="nav-number">1.2.</span> <span class="nav-text">数值排序</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#根据某一列数据进行排序"><span class="nav-number">1.2.1.</span> <span class="nav-text">根据某一列数据进行排序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#根据多列数据进行排序"><span class="nav-number">1.2.2.</span> <span class="nav-text">根据多列数据进行排序</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数值删除"><span class="nav-number">1.3.</span> <span class="nav-text">数值删除</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#删除NaN值"><span class="nav-number">1.3.1.</span> <span class="nav-text">删除NaN值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#按列删除"><span class="nav-number">1.3.2.</span> <span class="nav-text">按列删除</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#根据列的位置索引进行删除"><span class="nav-number">1.3.3.</span> <span class="nav-text">根据列的位置索引进行删除</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#删除行"><span class="nav-number">1.3.4.</span> <span class="nav-text">删除行</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#插入新的数据"><span class="nav-number">1.4.</span> <span class="nav-text">插入新的数据</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#插入列"><span class="nav-number">1.4.1.</span> <span class="nav-text">插入列</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#在DataFrame最后插入新列"><span class="nav-number">1.4.2.</span> <span class="nav-text">在DataFrame最后插入新列</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#apply-和applymap-函数的使用"><span class="nav-number">1.5.</span> <span class="nav-text">apply()和applymap()函数的使用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#apply（）方法"><span class="nav-number">1.5.1.</span> <span class="nav-text">apply（）方法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#替换"><span class="nav-number">1.5.1.1.</span> <span class="nav-text">替换</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#applymap-方法"><span class="nav-number">1.5.1.2.</span> <span class="nav-text">applymap()方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#针对行来进行数据处理"><span class="nav-number">1.5.1.3.</span> <span class="nav-text">针对行来进行数据处理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#条件修改"><span class="nav-number">1.5.1.4.</span> <span class="nav-text">条件修改</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据运算"><span class="nav-number">1.6.</span> <span class="nav-text">数据运算</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#算术运算"><span class="nav-number">1.6.1.</span> <span class="nav-text">算术运算</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#比较运算"><span class="nav-number">1.6.2.</span> <span class="nav-text">比较运算</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#汇总运算"><span class="nav-number">1.6.3.</span> <span class="nav-text">汇总运算</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#求和"><span class="nav-number">1.6.3.1.</span> <span class="nav-text">求和</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#求值的个数"><span class="nav-number">1.6.3.2.</span> <span class="nav-text">求值的个数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#求平均值"><span class="nav-number">1.6.3.3.</span> <span class="nav-text">求平均值</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#最大值"><span class="nav-number">1.6.3.4.</span> <span class="nav-text">最大值</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#最小值"><span class="nav-number">1.6.3.5.</span> <span class="nav-text">最小值</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#中位数"><span class="nav-number">1.6.3.6.</span> <span class="nav-text">中位数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#众数"><span class="nav-number">1.6.3.7.</span> <span class="nav-text">众数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#方差"><span class="nav-number">1.6.3.8.</span> <span class="nav-text">方差</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#标准差"><span class="nav-number">1.6.3.9.</span> <span class="nav-text">标准差</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#分位数"><span class="nav-number">1.6.3.10.</span> <span class="nav-text">分位数</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#时间序列操作"><span class="nav-number">1.7.</span> <span class="nav-text">时间序列操作</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#pandas提供的日期时间的常见操作"><span class="nav-number">1.7.1.</span> <span class="nav-text">pandas提供的日期时间的常见操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#时间索引变成普通索引"><span class="nav-number">1.7.2.</span> <span class="nav-text">时间索引变成普通索引</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#时间类型做比较运算"><span class="nav-number">1.7.3.</span> <span class="nav-text">时间类型做比较运算</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#计算时间偏移"><span class="nav-number">1.7.4.</span> <span class="nav-text">计算时间偏移</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#利用pandas自带的库来进行时间偏移运算"><span class="nav-number">1.7.5.</span> <span class="nav-text">利用pandas自带的库来进行时间偏移运算</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#DataFrame的拼接操作"><span class="nav-number">1.8.</span> <span class="nav-text">DataFrame的拼接操作</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#列方向拼接"><span class="nav-number">1.8.0.1.</span> <span class="nav-text">列方向拼接</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#如何插入一行新的数据"><span class="nav-number">1.8.1.</span> <span class="nav-text">如何插入一行新的数据</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据分组"><span class="nav-number">1.9.</span> <span class="nav-text">数据分组</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#按照单列进行统计"><span class="nav-number">1.9.1.</span> <span class="nav-text">按照单列进行统计</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#按照多列进行统计"><span class="nav-number">1.9.2.</span> <span class="nav-text">按照多列进行统计</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#aggregate-方法的使用"><span class="nav-number">1.9.3.</span> <span class="nav-text">aggregate()方法的使用</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        ﻿<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">凌波小燕子</span>
+
+  
+</div>
+<div class="powered-by">
+
+<i class="fa fa-user-md"></i>
+<!--<span id="busuanzi_container_site_uv">
+  本站总访问量<span id="busuanzi_value_site_uv"></span>次
+</span>-->
+</span>
+
+</div>
+
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动
+<a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=37011202000773" style="display:inline-block;text-decoration:none;height:20px;line-height:20px;"><img src="" style="float:left;"/><p style="float:left;height:20px;line-height:20px;margin: 0px 0px 0px 5px; color:#939393;">鲁公网安备 37011202000773号</p></a>
+</div>
+
+<!--
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.4</div>
+
+-->
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

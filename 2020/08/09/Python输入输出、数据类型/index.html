@@ -1,0 +1,837 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-center-radar.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="生产实习上课笔记," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="Python 输入输出print（）  print（）后可跟任何类型变量。字符串用单引号，用逗号分割参数，在输出时参数之间用空格隔开。结果会自动换行。  如果不想换行，则在后面定义一个end参数，如：">
+<meta name="keywords" content="生产实习上课笔记">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python输入输出、数据类型">
+<meta property="og:url" content="https://hsdgawrk.github.io/2020/08/09/Python输入输出、数据类型/index.html">
+<meta property="og:site_name" content="凌波小燕子的博客">
+<meta property="og:description" content="Python 输入输出print（）  print（）后可跟任何类型变量。字符串用单引号，用逗号分割参数，在输出时参数之间用空格隔开。结果会自动换行。  如果不想换行，则在后面定义一个end参数，如：">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2020-08-09T04:28:55.555Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Python输入输出、数据类型">
+<meta name="twitter:description" content="Python 输入输出print（）  print（）后可跟任何类型变量。字符串用单引号，用逗号分割参数，在输出时参数之间用空格隔开。结果会自动换行。  如果不想换行，则在后面定义一个end参数，如：">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://hsdgawrk.github.io/2020/08/09/Python输入输出、数据类型/"/>
+
+
+
+
+
+  <title>Python输入输出、数据类型 | 凌波小燕子的博客</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+<link rel="stylesheet" href="/dist/APlayer.min.css">
+<div id="aplayer"></div>
+<script type="text/javascript" src="/dist/APlayer.min.js"></script>
+<script type="text/javascript" src="/dist/music.js"></script>
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+<a href="https://github.com/hsdgawrk" class="github-corner" aria-label="View source on Github"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#FD6C6C; color:#fff; position: absolute; top: 0; border: 0; left: 0; transform: scale(-1, 1);" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">凌波小燕子的博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Stay hungry，stay foolish.</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://hsdgawrk.github.io/2020/08/09/Python输入输出、数据类型/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="凌波小燕子">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/./images/avatar/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="凌波小燕子的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Python输入输出、数据类型</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-08-09T12:26:30+08:00">
+                2020-08-09
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="Python-输入输出"><a href="#Python-输入输出" class="headerlink" title="Python 输入输出"></a>Python 输入输出</h1><h2 id="print（）"><a href="#print（）" class="headerlink" title="print（）"></a>print（）</h2><p>  print（）后可跟任何类型变量。字符串用单引号，用逗号分割参数，在输出时参数之间用空格隔开。结果会自动换行。<br>  如果不想换行，则在后面定义一个end参数，如：<a id="more"></a></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">print(<span class="string">'hello world'</span>, end = <span class="string">''</span>)</span><br></pre></td></tr></table></figure>
+<h2 id="input"><a href="#input" class="headerlink" title="input()"></a>input()</h2><p>接受输入，以回车键结束。默认返回值是<strong>字符串</strong>，如果需要数字或者将输入来进行数学运算运算的话需要强制类型转换，如：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">x = int(input(<span class="string">'input something...'</span>))</span><br></pre></td></tr></table></figure>
+<p>其中，括号中参数是输入的提示语。</p>
+<h2 id="和’’’还有”””"><a href="#和’’’还有”””" class="headerlink" title="#和’’’还有”””"></a>#和’’’还有”””</h2><p>是注释符号，用它开头的代码不会没执行。<br>多行语句注释使用三个单引号(‘’’)或者三个双引号(“””)。</p>
+<h2 id="type-变量名"><a href="#type-变量名" class="headerlink" title="type(变量名)"></a>type(变量名)</h2><p>查看变量的数据类型，如：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">type(a)</span><br></pre></td></tr></table></figure>
+<h1 id="Python-格式化输出"><a href="#Python-格式化输出" class="headerlink" title="Python 格式化输出"></a>Python 格式化输出</h1><h2 id="format"><a href="#format" class="headerlink" title="format()"></a>format()</h2><p>格式化输出如下：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">a = <span class="string">'kitty'</span></span><br><span class="line">print(<span class="string">'hello, &#123;&#125;'</span>.format(a))</span><br></pre></td></tr></table></figure>
+<p><em>输出：hello,kitty</em></p>
+<p>又如：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">b = <span class="number">25</span></span><br><span class="line">c = <span class="string">'中国人'</span></span><br><span class="line">print(<span class="string">'我今年&#123;&#125;岁，我是&#123;&#125;'</span>.format(b, c))</span><br></pre></td></tr></table></figure>
+<p><em>输出：我今年25岁，我是中国人</em></p>
+<p>保留两位小数的输出如下：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">c = <span class="number">0.345</span></span><br><span class="line">print(‘c保留两位小数是：&#123;:<span class="number">.2</span>f&#125;’.format(c))</span><br></pre></td></tr></table></figure>
+<p><em>输出：c保留两位小数是0.34</em></p>
+<h1 id="基本语法规则：缩进"><a href="#基本语法规则：缩进" class="headerlink" title="基本语法规则：缩进"></a>基本语法规则：缩进</h1><p>缩进使用四个空格，凡是语句块都要使用缩进，常见语句块有：函数定义（def）、对象定义、判断语句(if)、循环语句（for），如：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> x == <span class="number">1</span>:</span><br><span class="line">    print(<span class="string">'x=1'</span>)</span><br></pre></td></tr></table></figure>
+<p>又如函数定义：<br>def add():<br>    a = int(input(‘a’))<br>    b = int(input(‘b’))<br>    return a + b</p>
+<h1 id="基本语法规则–操作符"><a href="#基本语法规则–操作符" class="headerlink" title="基本语法规则–操作符"></a>基本语法规则–操作符</h1><h2 id="算术运算符：-，-，-，-，-（整除），-，-（乘方）"><a href="#算术运算符：-，-，-，-，-（整除），-，-（乘方）" class="headerlink" title="算术运算符：+， -， *， /， //（整除），%，**（乘方）"></a>算术运算符：+， -， *， /， //（整除），%，**（乘方）</h2><h2 id="比较运算符：-gt-lt-gt"><a href="#比较运算符：-gt-lt-gt" class="headerlink" title="比较运算符：&gt;,&lt;,&gt;=,==,!="></a>比较运算符：&gt;,&lt;,&gt;=,==,!=</h2><h2 id="逻辑运算符：or，and，not（取反）"><a href="#逻辑运算符：or，and，not（取反）" class="headerlink" title="逻辑运算符：or，and，not（取反）"></a>逻辑运算符：or，and，not（取反）</h2><p>如：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> a &gt; <span class="number">0</span> <span class="keyword">or</span> b &lt; <span class="number">1</span>:</span><br><span class="line">	print(<span class="string">'ok'</span>)</span><br></pre></td></tr></table></figure>
+<p>​    又如：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> a &gt; <span class="number">0</span> <span class="keyword">and</span> b &lt; <span class="number">1</span>:</span><br><span class="line">	print(<span class="string">'ok'</span>)</span><br></pre></td></tr></table></figure>
+<p>​    <strong>而不是（&amp;&amp;或者||）</strong></p>
+<p>​    取反，代码如下：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> <span class="keyword">not</span> a:</span><br><span class="line">	do_something()</span><br></pre></td></tr></table></figure>
+<h2 id="赋值运算符：-，-（a-a-anything），-，"><a href="#赋值运算符：-，-（a-a-anything），-，" class="headerlink" title="赋值运算符：=，+=（a = a + anything），%=，-="></a>赋值运算符：=，+=（a = a + anything），%=，-=</h2><h2 id="成员运算符：in，not-in，如："><a href="#成员运算符：in，not-in，如：" class="headerlink" title="成员运算符：in，not in，如："></a>成员运算符：in，not in，如：</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> <span class="string">'hello'</span> <span class="keyword">in</span> <span class="string">'hello world'</span>:</span><br><span class="line">	print(<span class="string">'True'</span>)</span><br></pre></td></tr></table></figure>
+<h1 id="Python变量命名规范"><a href="#Python变量命名规范" class="headerlink" title="Python变量命名规范"></a>Python变量命名规范</h1><h2 id="普通变量"><a href="#普通变量" class="headerlink" title="普通变量"></a>普通变量</h2><p>​    全部小写，以下划线（<em>）或者字母开头，单词与单词之间以下划线（\</em>）分隔</p>
+<h2 id="函数名"><a href="#函数名" class="headerlink" title="函数名"></a>函数名</h2><p>​    全部小写，单词与单词之间以下划线（_）分隔</p>
+<h2 id="类名"><a href="#类名" class="headerlink" title="类名"></a>类名</h2><p>​    每个单词首字母大写，单词与单词之间自然连接</p>
+<h1 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h1><h2 id="Python3的标准数据类型"><a href="#Python3的标准数据类型" class="headerlink" title="Python3的标准数据类型"></a>Python3的标准数据类型</h2><p>​    <strong>Number</strong>：数字（不可变）</p>
+<p>​    <strong>String</strong>：字符串（不可变）</p>
+<p>​    <strong>List</strong>：列表 （<em>不区分数据类型，啥都能装。可以理解成一个大的容器，可以放所有其他数据类型</em>）</p>
+<p>​    Tuple：元组（<em>不能接受元素的修改，是一个不可变的数据类型</em>）</p>
+<p>​    Set：集合（<em>无序列表，其中元素永不重复</em>）</p>
+<p>​    <strong>Dictionary</strong>：字典（<em>键值对：[key =&gt; value]，其中key只能由不可变的数据类型来做</em>）</p>
+<h2 id="数字运算"><a href="#数字运算" class="headerlink" title="数字运算"></a>数字运算</h2><p><em>注意数据类型的转换，input来的都是字符串</em></p>
+<h2 id="字符串定义"><a href="#字符串定义" class="headerlink" title="字符串定义"></a>字符串定义</h2><p>​    可以用单引号，双引号，三引号来定义字符串，它们之间<strong>没有任何区别</strong>。</p>
+<p>​    <strong>单引号</strong>（’）：按起来比较方便</p>
+<p>​    <strong>双引号</strong>（”）：用来规避字符串中出现的单引号（转义）产生的歧义（<em>它可以自动转义，在路径字符中会造成严重后果</em>）</p>
+<p>​    <strong>三引号</strong>（’’’）：三引号的两个作用</p>
+<p>​            程序的注释、函数的注释、类的注释；多行字符串</p>
+<h2 id="原始字符串"><a href="#原始字符串" class="headerlink" title="原始字符串"></a>原始字符串</h2><p>在字符串前面加上r，便可自动转义，一般用于转义Windows路径，如：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">a = <span class="string">r"C/user/desktop"</span></span><br></pre></td></tr></table></figure>
+<p>此时，/u和/d不会存在被转义的现象</p>
+<h2 id="字符串截取"><a href="#字符串截取" class="headerlink" title="字符串截取"></a>字符串截取</h2><p>切片操作可以从一个字符串中截取一个子字符串，用一对方括号[start: end:step​]来表示，start表示子串开始索引，end表示子串结束索引，step表示步长，即每隔step - 1个字符取一个。常见操作如下：<em>提取子串的索引规则是[start，end)</em>。</p>
+<p>[:] <strong>提取开头到结尾的整个字符串,end不指定代表取到最后</strong></p>
+<p>[start:] <strong>从start取到结尾</strong></p>
+<p>[:end - 1] <strong>从开头提取到end-1</strong></p>
+<p>例如：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">s = <span class="string">'欢迎你来学习Python'</span></span><br><span class="line">print(S[:]) <span class="comment">#取整个字符串</span></span><br><span class="line">print(s[<span class="number">4</span>:]) <span class="comment">#从第四个字取到最后</span></span><br><span class="line">print(s[:<span class="number">-6</span>]) <span class="comment">#从开始取到倒数第七个字符</span></span><br><span class="line">print(s[::<span class="number">-1</span>]) <span class="comment">#字符串全部倒序</span></span><br></pre></td></tr></table></figure>
+<p><em>step = 1代表挨着取，如果step &gt; 0，代表正着取字符串，如果step &lt; 0，代表倒着截取字符串，正序取的时候start必须从正序开始，逆序取的话start必须从逆序开始。</em></p>
+<h2 id="字符串的函数"><a href="#字符串的函数" class="headerlink" title="字符串的函数"></a>字符串的函数</h2><p><strong>len(string)</strong>：返回字符串长度</p>
+<p><strong>replace(old, new, [,max])</strong>：把字符串str1替换成str2，如果max指定，则替换不超过max次，如：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">s = <span class="string">'Welcome to Python'</span></span><br><span class="line">print(<span class="string">'Python'</span>, <span class="string">'Java'</span>)</span><br></pre></td></tr></table></figure>
+<p><em>输出：Welcome to Java</em></p>
+<p><strong>split(str = “”)</strong>:以str为分隔符截取字符串(<em>默认按照空格来拆分，多个空格也只拆分一次</em>)，如：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">s = <span class="string">'Welcome to Python'</span></span><br><span class="line">print(s.split())</span><br></pre></td></tr></table></figure>
+<p><em>输出：</em></p>
+<p>又如：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">s = <span class="string">'Welcome#to##Python'</span></span><br><span class="line">print(s.split())</span><br></pre></td></tr></table></figure>
+<p><em>输出：[‘Welcome’, ‘to’, ‘’, ‘Python’]</em></p>
+<p>去除中间的空元素如下：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">print(s.replace(<span class="string">'#'</span>, <span class="string">' '</span>).split()) <span class="comment">#此处为链式调用</span></span><br></pre></td></tr></table></figure>
+<p><strong>strip(str)</strong>:删除字符串<strong>两边</strong>str代表的字符，默认代表删除字符串<strong>两边</strong>的空格，如：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">s = <span class="string">'@@Welcome to Python@@'</span></span><br><span class="line">print(s.strip(<span class="string">'@'</span>))</span><br></pre></td></tr></table></figure>
+<p><em>输出：Welcome to Python</em></p>
+<p><strong>str.islower()/str.isupper()</strong>:判断字符串是否包含至少一个区分大小写的字符，如果字符串全为小写字母，返回True，反之返回False,如：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">b = <span class="string">'hello'</span></span><br><span class="line">print(b.islower())</span><br></pre></td></tr></table></figure>
+<p><em>输出：Ture</em></p>
+<p><strong>upper()/lower()</strong>:将字符变成全大写/小写</p>
+<p><strong>‘,’.join([‘a’, ‘b’, ‘c’])</strong>:用逗号将join中的列表的各项连接起来，如下：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">a = [<span class="string">'hello'</span>, <span class="string">'world'</span>, <span class="string">'ok'</span>, <span class="string">'good'</span>]</span><br><span class="line">print(<span class="string">','</span>.join(a))</span><br></pre></td></tr></table></figure>
+<p><em>输出：hello,world,ok,good</em></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/生产实习上课笔记/" rel="tag"># 生产实习上课笔记</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/11/03/Ubuntu18-04从安装到卸载/" rel="next" title="Ubuntu18.04从安装到卸载">
+                <i class="fa fa-chevron-left"></i> Ubuntu18.04从安装到卸载
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/08/09/Python数据类型、条件控制/" rel="prev" title="Python数据类型、条件控制">
+                Python数据类型、条件控制 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC80MDA2Ni8xNjU5Mw=="></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/./images/avatar/avatar.jpg"
+                alt="凌波小燕子" />
+            
+              <p class="site-author-name" itemprop="name">凌波小燕子</p>
+              <p class="site-description motion-element" itemprop="description">Talk less and do more.</p>
+          </div>
+
+
+          
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/hsdgawrk" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://weibo.com/u/3248548900" target="_blank" title="新浪微博">
+                      
+                        <i class="fa fa-fw fa-weibo"></i>新浪微博</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Python-输入输出"><span class="nav-number">1.</span> <span class="nav-text">Python 输入输出</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#print（）"><span class="nav-number">1.1.</span> <span class="nav-text">print（）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#input"><span class="nav-number">1.2.</span> <span class="nav-text">input()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#和’’’还有”””"><span class="nav-number">1.3.</span> <span class="nav-text">#和’’’还有”””</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#type-变量名"><span class="nav-number">1.4.</span> <span class="nav-text">type(变量名)</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Python-格式化输出"><span class="nav-number">2.</span> <span class="nav-text">Python 格式化输出</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#format"><span class="nav-number">2.1.</span> <span class="nav-text">format()</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#基本语法规则：缩进"><span class="nav-number">3.</span> <span class="nav-text">基本语法规则：缩进</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#基本语法规则–操作符"><span class="nav-number">4.</span> <span class="nav-text">基本语法规则–操作符</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#算术运算符：-，-，-，-，-（整除），-，-（乘方）"><span class="nav-number">4.1.</span> <span class="nav-text">算术运算符：+， -， *， /， //（整除），%，**（乘方）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#比较运算符：-gt-lt-gt"><span class="nav-number">4.2.</span> <span class="nav-text">比较运算符：&gt;,&lt;,&gt;=,==,!=</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#逻辑运算符：or，and，not（取反）"><span class="nav-number">4.3.</span> <span class="nav-text">逻辑运算符：or，and，not（取反）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#赋值运算符：-，-（a-a-anything），-，"><span class="nav-number">4.4.</span> <span class="nav-text">赋值运算符：=，+=（a = a + anything），%=，-=</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#成员运算符：in，not-in，如："><span class="nav-number">4.5.</span> <span class="nav-text">成员运算符：in，not in，如：</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Python变量命名规范"><span class="nav-number">5.</span> <span class="nav-text">Python变量命名规范</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#普通变量"><span class="nav-number">5.1.</span> <span class="nav-text">普通变量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#函数名"><span class="nav-number">5.2.</span> <span class="nav-text">函数名</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#类名"><span class="nav-number">5.3.</span> <span class="nav-text">类名</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#数据类型"><span class="nav-number">6.</span> <span class="nav-text">数据类型</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Python3的标准数据类型"><span class="nav-number">6.1.</span> <span class="nav-text">Python3的标准数据类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数字运算"><span class="nav-number">6.2.</span> <span class="nav-text">数字运算</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#字符串定义"><span class="nav-number">6.3.</span> <span class="nav-text">字符串定义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#原始字符串"><span class="nav-number">6.4.</span> <span class="nav-text">原始字符串</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#字符串截取"><span class="nav-number">6.5.</span> <span class="nav-text">字符串截取</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#字符串的函数"><span class="nav-number">6.6.</span> <span class="nav-text">字符串的函数</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        ﻿<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">凌波小燕子</span>
+
+  
+</div>
+<div class="powered-by">
+
+<i class="fa fa-user-md"></i>
+<!--<span id="busuanzi_container_site_uv">
+  本站总访问量<span id="busuanzi_value_site_uv"></span>次
+</span>-->
+</span>
+
+</div>
+
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动
+<a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=37011202000773" style="display:inline-block;text-decoration:none;height:20px;line-height:20px;"><img src="" style="float:left;"/><p style="float:left;height:20px;line-height:20px;margin: 0px 0px 0px 5px; color:#939393;">鲁公网安备 37011202000773号</p></a>
+</div>
+
+<!--
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.4</div>
+
+-->
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
