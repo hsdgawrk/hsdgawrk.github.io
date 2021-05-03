@@ -86,18 +86,18 @@
 
 
 
-<meta name="description" content="数据操作将数据挑选出来之后，我们通常要根据需求对数据进行进一步的操作，比如数值替换、排序、计数等等 数值操作主要有：数值替换、数值排序、数值删除、插入新的行或列、apply和applymap函数。">
+<meta name="description" content="var options = {&quot;narrow&quot;:false,&quot;autoplay&quot;:false,&quot;showlrc&quot;:0,&quot;mode&quot;:&quot;random&quot;,&quot;mutex&quot;:true,&quot;theme&quot;:&quot;#e6d0b2&quot;,&quot;preload&quot;:&quot;metadata&quot;,&quot;listmaxheight&quot;:&quot;513px&quot;,&quot;listFolded&quot;:true,&quot;music&quot;:[{&quot;title&quot;:">
 <meta name="keywords" content="生产实习上课笔记">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Python数据操作（2）">
 <meta property="og:url" content="https://hsdgawrk.github.io/2020/08/09/Python数据操作（2）/index.html">
 <meta property="og:site_name" content="凌波小燕子的博客">
-<meta property="og:description" content="数据操作将数据挑选出来之后，我们通常要根据需求对数据进行进一步的操作，比如数值替换、排序、计数等等 数值操作主要有：数值替换、数值排序、数值删除、插入新的行或列、apply和applymap函数。">
+<meta property="og:description" content="var options = {&quot;narrow&quot;:false,&quot;autoplay&quot;:false,&quot;showlrc&quot;:0,&quot;mode&quot;:&quot;random&quot;,&quot;mutex&quot;:true,&quot;theme&quot;:&quot;#e6d0b2&quot;,&quot;preload&quot;:&quot;metadata&quot;,&quot;listmaxheight&quot;:&quot;513px&quot;,&quot;listFolded&quot;:true,&quot;music&quot;:[{&quot;title&quot;:">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-08-09T04:36:54.037Z">
+<meta property="og:updated_time" content="2021-05-03T13:47:39.841Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Python数据操作（2）">
-<meta name="twitter:description" content="数据操作将数据挑选出来之后，我们通常要根据需求对数据进行进一步的操作，比如数值替换、排序、计数等等 数值操作主要有：数值替换、数值排序、数值删除、插入新的行或列、apply和applymap函数。">
+<meta name="twitter:description" content="var options = {&quot;narrow&quot;:false,&quot;autoplay&quot;:false,&quot;showlrc&quot;:0,&quot;mode&quot;:&quot;random&quot;,&quot;mutex&quot;:true,&quot;theme&quot;:&quot;#e6d0b2&quot;,&quot;preload&quot;:&quot;metadata&quot;,&quot;listmaxheight&quot;:&quot;513px&quot;,&quot;listFolded&quot;:true,&quot;music&quot;:[{&quot;title&quot;:">
 
 
 
@@ -143,13 +143,11 @@
 
 
 
+<link rel="stylesheet" href="\assets\css\APlayer.min.css" class="aplayer-style-marker">
+<script src="\assets\js\APlayer.min.js" class="aplayer-script-marker"></script>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
-<link rel="stylesheet" href="/dist/APlayer.min.css">
-<div id="aplayer"></div>
-<script type="text/javascript" src="/dist/APlayer.min.js"></script>
-<script type="text/javascript" src="/dist/music.js"></script>
   
   
     
@@ -330,7 +328,16 @@
       
 
       
-        <h1 id="数据操作"><a href="#数据操作" class="headerlink" title="数据操作"></a>数据操作</h1><p>将数据挑选出来之后，我们通常要根据需求对数据进行进一步的操作，比如数值替换、排序、计数等等</p>
+        
+        <div id="aplayer-uqrPTYAH" class="aplayer aplayer-tag-marker" style="margin-bottom: 20px;"></div>
+			  <script>
+				  var options = {"narrow":false,"autoplay":false,"showlrc":0,"mode":"random","mutex":true,"theme":"#e6d0b2","preload":"metadata","listmaxheight":"513px","listFolded":true,"music":[{"title":"嘘月","author":"ヨルシカ","url":"http://music.163.com/song/media/outer/url?id=1815109509.mp3","pic":"http://p2.music.126.net/Ok0xk_CpJW21lAUG9UiMww==/109951165666599650.jpg"},{"title":"春泥棒","author":"ヨルシカ","url":"http://music.163.com/song/media/outer/url?id=1810759765.mp3","pic":"http://p2.music.126.net/kBtj7HlFDuokeO4iyHTXaA==/109951165616927101.jpg"},{"title":"盗作","author":"ヨルシカ","url":"http://music.163.com/song/media/outer/url?id=1464737240.mp3","pic":"http://p1.music.126.net/033ZocR9XnX1MdcXCWW_iQ==/109951165180340452.jpg"},{"title":"花に亡霊","author":"ヨルシカ","url":"http://music.163.com/song/media/outer/url?id=1442466883.mp3","pic":"http://p1.music.126.net/_Os98d4NSKf-vLo_93QoEg==/109951164927614269.jpg"},{"title":"憂一乗","author":"ヨルシカ","url":"http://music.163.com/song/media/outer/url?id=1387099644.mp3","pic":"http://p2.music.126.net/oH-hPC-coG6spFpbaA4xjw==/109951164327687331.jpg"},{"title":"エイミー","author":"ヨルシカ","url":"http://music.163.com/song/media/outer/url?id=1387098938.mp3","pic":"http://p2.music.126.net/oH-hPC-coG6spFpbaA4xjw==/109951164327687331.jpg"},{"title":"エルマ","author":"ヨルシカ","url":"http://music.163.com/song/media/outer/url?id=1357960252.mp3","pic":"http://p2.music.126.net/ks136mj7FcZXgZ8IF-cpSA==/109951163986681435.jpg"},{"title":"踊ろうぜ","author":"ヨルシカ","url":"http://music.163.com/song/media/outer/url?id=1357953774.mp3","pic":"http://p2.music.126.net/ks136mj7FcZXgZ8IF-cpSA==/109951163986681435.jpg"},{"title":"藍二乗","author":"ヨルシカ","url":"http://music.163.com/song/media/outer/url?id=1357960253.mp3","pic":"http://p2.music.126.net/ks136mj7FcZXgZ8IF-cpSA==/109951163986681435.jpg"},{"title":"だから僕は音楽を辞めた","author":"ヨルシカ","url":"http://music.163.com/song/media/outer/url?id=1357953768.mp3","pic":"http://p1.music.126.net/ks136mj7FcZXgZ8IF-cpSA==/109951163986681435.jpg"}]};
+				  options.element = document.getElementById("aplayer-uqrPTYAH");
+				  var ap = new APlayer(options);
+			    window.aplayers || (window.aplayers = []);
+				  window.aplayers.push(ap);
+			  </script>
+<h1 id="数据操作"><a href="#数据操作" class="headerlink" title="数据操作"></a>数据操作</h1><p>将数据挑选出来之后，我们通常要根据需求对数据进行进一步的操作，比如数值替换、排序、计数等等</p>
 <p>数值操作主要有：数值替换、数值排序、数值删除、插入新的行或列、apply和applymap函数。<a id="more"></a></p>
 <h2 id="数值替换"><a href="#数值替换" class="headerlink" title="数值替换"></a>数值替换</h2><h3 id="一对一的替换"><a href="#一对一的替换" class="headerlink" title="一对一的替换"></a>一对一的替换</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">df = pd.read_excel(<span class="string">r'数值操作.xlsx'</span>)</span><br><span class="line"></span><br><span class="line">df.replace(<span class="string">'张天峰'</span>, <span class="string">'张三丰'</span>) <span class="comment"># 返回一个新的DataFrame。是一个“凡是...则...”修改</span></span><br></pre></td></tr></table></figure>
 <h3 id="一对多的替换"><a href="#一对多的替换" class="headerlink" title="一对多的替换"></a>一对多的替换</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df.replace([<span class="number">2698</span>, <span class="number">1390</span>, <span class="number">1029</span>], <span class="number">999</span>) <span class="comment"># 将表格中包含列表中的数值全部替换成999，返回新的DataFrame, 是一个“凡是...则...”修改</span></span><br></pre></td></tr></table></figure>
@@ -520,7 +527,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">14</span>
+                  <span class="site-state-item-count">19</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -533,7 +540,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">7</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -680,13 +687,14 @@
   
 
 
+
+
+
+
+
+
   
-
-
-
-
-
-
+  
 
 
 
@@ -724,7 +732,12 @@
 
   
   
-    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+    <script type="text/javascript" src="/lib/three/three.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/canvas_sphere.min.js"></script>
   
 
 

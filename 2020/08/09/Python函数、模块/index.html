@@ -86,18 +86,18 @@
 
 
 
-<meta name="description" content="函数定义规则： 1、函数代码块以def关键字开头，后接函数表示符号名称和圆括号() 2、任何从外部传入的参数必须在圆括号中 3、函数第一行语句可以注释的方式写一下函数的作用（可选） 4、函数内容以冒号起始，并且缩进。return [表达式]来结束函数，选择性的返回一个值给调用方 5、不带return的返回值相当于返回None 缩进四个">
+<meta name="description" content="var options = {&quot;narrow&quot;:false,&quot;autoplay&quot;:false,&quot;showlrc&quot;:0,&quot;mode&quot;:&quot;random&quot;,&quot;mutex&quot;:true,&quot;theme&quot;:&quot;#e6d0b2&quot;,&quot;preload&quot;:&quot;metadata&quot;,&quot;listmaxheight&quot;:&quot;513px&quot;,&quot;listFolded&quot;:true,&quot;music&quot;:[{&quot;title&quot;:">
 <meta name="keywords" content="生产实习上课笔记">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Python函数、模块">
 <meta property="og:url" content="https://hsdgawrk.github.io/2020/08/09/Python函数、模块/index.html">
 <meta property="og:site_name" content="凌波小燕子的博客">
-<meta property="og:description" content="函数定义规则： 1、函数代码块以def关键字开头，后接函数表示符号名称和圆括号() 2、任何从外部传入的参数必须在圆括号中 3、函数第一行语句可以注释的方式写一下函数的作用（可选） 4、函数内容以冒号起始，并且缩进。return [表达式]来结束函数，选择性的返回一个值给调用方 5、不带return的返回值相当于返回None 缩进四个">
+<meta property="og:description" content="var options = {&quot;narrow&quot;:false,&quot;autoplay&quot;:false,&quot;showlrc&quot;:0,&quot;mode&quot;:&quot;random&quot;,&quot;mutex&quot;:true,&quot;theme&quot;:&quot;#e6d0b2&quot;,&quot;preload&quot;:&quot;metadata&quot;,&quot;listmaxheight&quot;:&quot;513px&quot;,&quot;listFolded&quot;:true,&quot;music&quot;:[{&quot;title&quot;:">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-08-09T04:31:13.175Z">
+<meta property="og:updated_time" content="2021-05-03T13:48:11.359Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Python函数、模块">
-<meta name="twitter:description" content="函数定义规则： 1、函数代码块以def关键字开头，后接函数表示符号名称和圆括号() 2、任何从外部传入的参数必须在圆括号中 3、函数第一行语句可以注释的方式写一下函数的作用（可选） 4、函数内容以冒号起始，并且缩进。return [表达式]来结束函数，选择性的返回一个值给调用方 5、不带return的返回值相当于返回None 缩进四个">
+<meta name="twitter:description" content="var options = {&quot;narrow&quot;:false,&quot;autoplay&quot;:false,&quot;showlrc&quot;:0,&quot;mode&quot;:&quot;random&quot;,&quot;mutex&quot;:true,&quot;theme&quot;:&quot;#e6d0b2&quot;,&quot;preload&quot;:&quot;metadata&quot;,&quot;listmaxheight&quot;:&quot;513px&quot;,&quot;listFolded&quot;:true,&quot;music&quot;:[{&quot;title&quot;:">
 
 
 
@@ -143,13 +143,11 @@
 
 
 
+<link rel="stylesheet" href="\assets\css\APlayer.min.css" class="aplayer-style-marker">
+<script src="\assets\js\APlayer.min.js" class="aplayer-script-marker"></script>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
-<link rel="stylesheet" href="/dist/APlayer.min.css">
-<div id="aplayer"></div>
-<script type="text/javascript" src="/dist/APlayer.min.js"></script>
-<script type="text/javascript" src="/dist/music.js"></script>
   
   
     
@@ -330,7 +328,16 @@
       
 
       
-        <h1 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h1><h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><p><strong>规则</strong>：</p>
+        
+        <div id="aplayer-IfHICoCp" class="aplayer aplayer-tag-marker" style="margin-bottom: 20px;"></div>
+			  <script>
+				  var options = {"narrow":false,"autoplay":false,"showlrc":0,"mode":"random","mutex":true,"theme":"#e6d0b2","preload":"metadata","listmaxheight":"513px","listFolded":true,"music":[{"title":"嘘月","author":"ヨルシカ","url":"http://music.163.com/song/media/outer/url?id=1815109509.mp3","pic":"http://p2.music.126.net/Ok0xk_CpJW21lAUG9UiMww==/109951165666599650.jpg"},{"title":"春泥棒","author":"ヨルシカ","url":"http://music.163.com/song/media/outer/url?id=1810759765.mp3","pic":"http://p2.music.126.net/kBtj7HlFDuokeO4iyHTXaA==/109951165616927101.jpg"},{"title":"盗作","author":"ヨルシカ","url":"http://music.163.com/song/media/outer/url?id=1464737240.mp3","pic":"http://p1.music.126.net/033ZocR9XnX1MdcXCWW_iQ==/109951165180340452.jpg"},{"title":"花に亡霊","author":"ヨルシカ","url":"http://music.163.com/song/media/outer/url?id=1442466883.mp3","pic":"http://p1.music.126.net/_Os98d4NSKf-vLo_93QoEg==/109951164927614269.jpg"},{"title":"憂一乗","author":"ヨルシカ","url":"http://music.163.com/song/media/outer/url?id=1387099644.mp3","pic":"http://p2.music.126.net/oH-hPC-coG6spFpbaA4xjw==/109951164327687331.jpg"},{"title":"エイミー","author":"ヨルシカ","url":"http://music.163.com/song/media/outer/url?id=1387098938.mp3","pic":"http://p2.music.126.net/oH-hPC-coG6spFpbaA4xjw==/109951164327687331.jpg"},{"title":"エルマ","author":"ヨルシカ","url":"http://music.163.com/song/media/outer/url?id=1357960252.mp3","pic":"http://p2.music.126.net/ks136mj7FcZXgZ8IF-cpSA==/109951163986681435.jpg"},{"title":"踊ろうぜ","author":"ヨルシカ","url":"http://music.163.com/song/media/outer/url?id=1357953774.mp3","pic":"http://p2.music.126.net/ks136mj7FcZXgZ8IF-cpSA==/109951163986681435.jpg"},{"title":"藍二乗","author":"ヨルシカ","url":"http://music.163.com/song/media/outer/url?id=1357960253.mp3","pic":"http://p2.music.126.net/ks136mj7FcZXgZ8IF-cpSA==/109951163986681435.jpg"},{"title":"だから僕は音楽を辞めた","author":"ヨルシカ","url":"http://music.163.com/song/media/outer/url?id=1357953768.mp3","pic":"http://p1.music.126.net/ks136mj7FcZXgZ8IF-cpSA==/109951163986681435.jpg"}]};
+				  options.element = document.getElementById("aplayer-IfHICoCp");
+				  var ap = new APlayer(options);
+			    window.aplayers || (window.aplayers = []);
+				  window.aplayers.push(ap);
+			  </script>
+<h1 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h1><h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><p><strong>规则</strong>：</p>
 <p>1、函数代码块以def关键字开头，后接函数表示符号名称和圆括号()</p>
 <p>2、任何从外部传入的参数必须在圆括号中</p>
 <p>3、函数第一行语句可以注释的方式写一下函数的作用（可选）</p>
@@ -513,7 +520,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">14</span>
+                  <span class="site-state-item-count">19</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -526,7 +533,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">7</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -673,13 +680,14 @@
   
 
 
+
+
+
+
+
+
   
-
-
-
-
-
-
+  
 
 
 
@@ -717,7 +725,12 @@
 
   
   
-    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+    <script type="text/javascript" src="/lib/three/three.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/canvas_sphere.min.js"></script>
   
 
 

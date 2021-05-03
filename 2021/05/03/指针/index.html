@@ -1,0 +1,814 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-center-radar.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="C++ Primer," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="var options = {&quot;narrow&quot;:false,&quot;autoplay&quot;:false,&quot;showlrc&quot;:0,&quot;mode&quot;:&quot;random&quot;,&quot;mutex&quot;:true,&quot;theme&quot;:&quot;#e6d0b2&quot;,&quot;preload&quot;:&quot;metadata&quot;,&quot;listmaxheight&quot;:&quot;513px&quot;,&quot;listFolded&quot;:true,&quot;music&quot;:[{&quot;title&quot;:">
+<meta name="keywords" content="C++ Primer">
+<meta property="og:type" content="article">
+<meta property="og:title" content="指针(含部分数组)">
+<meta property="og:url" content="https://hsdgawrk.github.io/2021/05/03/指针/index.html">
+<meta property="og:site_name" content="凌波小燕子的博客">
+<meta property="og:description" content="var options = {&quot;narrow&quot;:false,&quot;autoplay&quot;:false,&quot;showlrc&quot;:0,&quot;mode&quot;:&quot;random&quot;,&quot;mutex&quot;:true,&quot;theme&quot;:&quot;#e6d0b2&quot;,&quot;preload&quot;:&quot;metadata&quot;,&quot;listmaxheight&quot;:&quot;513px&quot;,&quot;listFolded&quot;:true,&quot;music&quot;:[{&quot;title&quot;:">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2021-05-03T13:46:36.848Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="指针(含部分数组)">
+<meta name="twitter:description" content="var options = {&quot;narrow&quot;:false,&quot;autoplay&quot;:false,&quot;showlrc&quot;:0,&quot;mode&quot;:&quot;random&quot;,&quot;mutex&quot;:true,&quot;theme&quot;:&quot;#e6d0b2&quot;,&quot;preload&quot;:&quot;metadata&quot;,&quot;listmaxheight&quot;:&quot;513px&quot;,&quot;listFolded&quot;:true,&quot;music&quot;:[{&quot;title&quot;:">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://hsdgawrk.github.io/2021/05/03/指针/"/>
+
+
+
+
+
+  <title>指针(含部分数组) | 凌波小燕子的博客</title>
+  
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="\assets\css\APlayer.min.css" class="aplayer-style-marker">
+<script src="\assets\js\APlayer.min.js" class="aplayer-script-marker"></script>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+<a href="https://github.com/hsdgawrk" class="github-corner" aria-label="View source on Github"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#FD6C6C; color:#fff; position: absolute; top: 0; border: 0; left: 0; transform: scale(-1, 1);" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">凌波小燕子的博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Stay hungry，stay foolish.</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://hsdgawrk.github.io/2021/05/03/指针/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="凌波小燕子">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/./images/avatar/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="凌波小燕子的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">指针(含部分数组)</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-05-03T21:29:17+08:00">
+                2021-05-03
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+        <div id="aplayer-fSXYUBMY" class="aplayer aplayer-tag-marker" style="margin-bottom: 20px;"></div>
+			  <script>
+				  var options = {"narrow":false,"autoplay":false,"showlrc":0,"mode":"random","mutex":true,"theme":"#e6d0b2","preload":"metadata","listmaxheight":"513px","listFolded":true,"music":[{"title":"嘘月","author":"ヨルシカ","url":"http://music.163.com/song/media/outer/url?id=1815109509.mp3","pic":"http://p2.music.126.net/Ok0xk_CpJW21lAUG9UiMww==/109951165666599650.jpg"},{"title":"春泥棒","author":"ヨルシカ","url":"http://music.163.com/song/media/outer/url?id=1810759765.mp3","pic":"http://p2.music.126.net/kBtj7HlFDuokeO4iyHTXaA==/109951165616927101.jpg"},{"title":"盗作","author":"ヨルシカ","url":"http://music.163.com/song/media/outer/url?id=1464737240.mp3","pic":"http://p1.music.126.net/033ZocR9XnX1MdcXCWW_iQ==/109951165180340452.jpg"},{"title":"花に亡霊","author":"ヨルシカ","url":"http://music.163.com/song/media/outer/url?id=1442466883.mp3","pic":"http://p1.music.126.net/_Os98d4NSKf-vLo_93QoEg==/109951164927614269.jpg"},{"title":"憂一乗","author":"ヨルシカ","url":"http://music.163.com/song/media/outer/url?id=1387099644.mp3","pic":"http://p2.music.126.net/oH-hPC-coG6spFpbaA4xjw==/109951164327687331.jpg"},{"title":"エイミー","author":"ヨルシカ","url":"http://music.163.com/song/media/outer/url?id=1387098938.mp3","pic":"http://p2.music.126.net/oH-hPC-coG6spFpbaA4xjw==/109951164327687331.jpg"},{"title":"エルマ","author":"ヨルシカ","url":"http://music.163.com/song/media/outer/url?id=1357960252.mp3","pic":"http://p2.music.126.net/ks136mj7FcZXgZ8IF-cpSA==/109951163986681435.jpg"},{"title":"踊ろうぜ","author":"ヨルシカ","url":"http://music.163.com/song/media/outer/url?id=1357953774.mp3","pic":"http://p2.music.126.net/ks136mj7FcZXgZ8IF-cpSA==/109951163986681435.jpg"},{"title":"藍二乗","author":"ヨルシカ","url":"http://music.163.com/song/media/outer/url?id=1357960253.mp3","pic":"http://p2.music.126.net/ks136mj7FcZXgZ8IF-cpSA==/109951163986681435.jpg"},{"title":"だから僕は音楽を辞めた","author":"ヨルシカ","url":"http://music.163.com/song/media/outer/url?id=1357953768.mp3","pic":"http://p1.music.126.net/ks136mj7FcZXgZ8IF-cpSA==/109951163986681435.jpg"}]};
+				  options.element = document.getElementById("aplayer-fSXYUBMY");
+				  var ap = new APlayer(options);
+			    window.aplayers || (window.aplayers = []);
+				  window.aplayers.push(ap);
+			  </script>
+<h1 id="数组和指针"><a href="#数组和指针" class="headerlink" title="数组和指针"></a>数组和指针</h1><p>指针里面存了一个对象的地址，与迭代器类似也可以进行解引用操作。对指针进行解引用操作可以访问它所指向的对象。</p>
+<h2 id="指针的定义和初始化"><a href="#指针的定义和初始化" class="headerlink" title="指针的定义和初始化"></a>指针的定义和初始化</h2><p>理解指针的声明语句时，<strong><em>从右向左阅读</em></strong>。例如<a id="more"></a></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">string</span> *pstring;</span><br></pre></td></tr></table></figure>
+<p>语句把 <em>pstring</em> 定义为一个指向 <em>string</em> 类型对象的指针变量。</p>
+<p>在声明语句中，* 可以用在指定类型的对象列表的任何位置。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">double</span> dp, *dp2;</span><br></pre></td></tr></table></figure>
+<p>定义了一个 <em>double</em> 类型的 <em>dp</em> 对象和一个指向 <em>double</em> 类型对象的指针 <em>dp2</em></p>
+<h2 id="另一种指针声明风格"><a href="#另一种指针声明风格" class="headerlink" title="另一种指针声明风格"></a>另一种指针声明风格</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">string</span>* ps;</span><br></pre></td></tr></table></figure>
+<p>这样容易把 <em>string** <strong>误认为</strong>一种数据类型，认为在同语句中定义的其他变量也是指向 </em>string* 类型的指针，例如</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">string* ps1, ps2;</span><br></pre></td></tr></table></figure>
+<p>实际上<strong>只有</strong> <em>ps1</em> 是指针变量，<em>ps2</em> 并非指针。这样容易造成混淆，所以如果真的喜欢第二种的话请尽量分开声明。</p>
+<h3 id="注：未初始化的指针是无效的（但是语法允许），初始化为0值的指针代表的是它不指向任何对象。区别于引用，没有初始化的引用是错误-的"><a href="#注：未初始化的指针是无效的（但是语法允许），初始化为0值的指针代表的是它不指向任何对象。区别于引用，没有初始化的引用是错误-的" class="headerlink" title="注：未初始化的指针是无效的（但是语法允许），初始化为0值的指针代表的是它不指向任何对象。区别于引用，没有初始化的引用是错误 的"></a>注：未初始化的指针是无效的（但是语法允许），初始化为0值的指针代表的是它不指向任何对象。区别于引用，没有初始化的引用是<em>错误</em> 的</h3><h3 id="注2-最佳实践-：如果可能的话，除非所指向的对象已经存在，否则不要先定义指针，这样可以避免定义一个未初始化的指针；如果必须分开定义的话，一定要将指针初始化为0。"><a href="#注2-最佳实践-：如果可能的话，除非所指向的对象已经存在，否则不要先定义指针，这样可以避免定义一个未初始化的指针；如果必须分开定义的话，一定要将指针初始化为0。" class="headerlink" title="注2[最佳实践]：如果可能的话，除非所指向的对象已经存在，否则不要先定义指针，这样可以避免定义一个未初始化的指针；如果必须分开定义的话，一定要将指针初始化为0。"></a>注2[最佳实践]：如果可能的话，除非所指向的对象已经存在，否则<strong>不要</strong>先定义指针，这样可以避免定义一个未初始化的指针；如果必须分开定义的话，一定要将指针初始化为0。</h3><p>把 <em>int</em> 型变量赋给指针是<strong>非法</strong>的，即使该 <em>int</em> 是 0。但是可以把数字 0 或在编译时可获得 0 值得 <em>const</em> 量赋给指针。如下：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> zero = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> c_zero = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> *pointer;</span><br><span class="line">pointer = zero; <span class="comment">//不行</span></span><br><span class="line">pointer = c_zero; <span class="comment">//行</span></span><br><span class="line">pointer = <span class="number">0</span>; <span class="comment">//行</span></span><br><span class="line">pointer = <span class="literal">NULL</span>; <span class="comment">//行，NULL是&lt;cstdlib&gt;里面定义的值为0的常量</span></span><br></pre></td></tr></table></figure>
+<h2 id="void-指针"><a href="#void-指针" class="headerlink" title="*void **指针"></a>*void **指针</h2><p><em>void**表明该指针与一地址值相关，但不清楚指向的对象类型。不允许使用 </em>void** 来操纵它所指向的对象。</p>
+<h2 id="指针的算数操作"><a href="#指针的算数操作" class="headerlink" title="指针的算数操作"></a>指针的算数操作</h2><p>只要两个指针指向同一数组或有一个指向该数组末端的下一单元，可以对着两个指针进行做差</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ptrdiff_t</span> n = ip2 - ip;</span><br></pre></td></tr></table></figure>
+<p>两个指针做差的结果是 <strong>标准库类型</strong> <em>ptrdiff_t</em> 数据。这是一个 <em>signed</em> 整型。因为两个指针的距离可以是负数。</p>
+<h2 id="下标和指针"><a href="#下标和指针" class="headerlink" title="下标和指针"></a>下标和指针</h2><p>在使用下标访问数组时，实际上是对<strong>指向数组元素的指针</strong>做下标操作。只要指针指向数组元素，就能操作</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> *p = &amp;ia[<span class="number">2</span>]; <span class="comment">//p指向ia数组的第二个元素</span></span><br><span class="line"><span class="keyword">int</span> j = p[<span class="number">1</span>]; <span class="comment">//等价于*(p + 1)，也就是ia[3]</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> k = p[<span class="number">-2</span>]; <span class="comment">//等价于ia[0]</span></span><br></pre></td></tr></table></figure>
+<h3 id="注：C-允许计算数组或对象的超出末端地址，但是-不能-对其解引用。计算超出末端地址或者数组首地址之前的地址都是不合法的！"><a href="#注：C-允许计算数组或对象的超出末端地址，但是-不能-对其解引用。计算超出末端地址或者数组首地址之前的地址都是不合法的！" class="headerlink" title="注：C++允许计算数组或对象的超出末端地址，但是 不能 对其解引用。计算超出末端地址或者数组首地址之前的地址都是不合法的！"></a>注：C++允许计算数组或对象的超出末端地址，但是 <em>不能</em> 对其解引用。计算超出末端地址或者数组首地址之前的地址都是不合法的！</h3><h2 id="指针和-const-限定符"><a href="#指针和-const-限定符" class="headerlink" title="指针和 const 限定符"></a>指针和 <em>const</em> 限定符</h2><p>指针和 <em>const</em> 可以排列出两种类型：<em>const double \</em>cptr<em>  和 </em>double *const cptr<em>。前者是“自以为指向 </em>const<em> 的指针”，而后者是“</em>const* 指针”。</p>
+<p>自以为指向 <em>const</em> 的指针指向的值可以不是 <em>const</em> 对象，但是不能通过这个指针来修改对象的值</p>
+<p><em>const 指针</em> 指向任何对象，只是<strong>不能</strong>改变它指向的对象。但是如果该指针指向的对象不是 <em>const</em> 类型，那么可以通过该指针修改对象的值。</p>
+<p>也可以将二者结合起来，形成一个既不能改变指向对象也不能改变对象值的指针，即 <em>const double \</em>const pptr* = \&pi; </p>
+<h2 id="指针和-typedef"><a href="#指针和-typedef" class="headerlink" title="指针和 typedef"></a>指针和 <em>typedef</em></h2><p>如下代码经常容易搞错</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="built_in">string</span> *pstring;</span><br><span class="line"><span class="keyword">const</span> pstring cstr;</span><br></pre></td></tr></table></figure>
+<p>对 <em>cstr</em> 来说，它的数据类型是 <em>const 指针</em> ，也就是 <em>string \</em>const cstr* 。</p>
+<p>所以在用 <em>typedef</em> 写 <em>const</em> 类型定义时，最好将 <em>const</em> 放在类型<strong>后面</strong> </p>
+<h2 id="C风格字符串"><a href="#C风格字符串" class="headerlink" title="C风格字符串"></a>C风格字符串</h2><p><strong>尽量少用，能用 <em>string</em> 就用 <em>string</em></strong>  </p>
+<p>在前面学习的过程中经常使用 <em>&lt;string.h&gt;</em> 中的 <em>strcat()</em> 和 <em>strcpy()</em> 方法，但是这两个函数由于没有字符复制的限制，所以很容易造成漏洞。所以要尽量采用安全的字符串拼接和复制方法。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="built_in">strncat</span>(s1, s2, n); <span class="comment">//将s2的前n个字符连接到s1后面，并返回s1</span></span><br><span class="line"><span class="built_in">strncpy</span>(s1, s2, n); <span class="comment">//将s2的前n个字符赋值给s1，并返回s1</span></span><br></pre></td></tr></table></figure>
+<h3 id="注：每次执行复制或者拼接操作时，最后一个参数一定要记得算上null结束符！！"><a href="#注：每次执行复制或者拼接操作时，最后一个参数一定要记得算上null结束符！！" class="headerlink" title="注：每次执行复制或者拼接操作时，最后一个参数一定要记得算上null结束符！！"></a>注：每次执行复制或者拼接操作时，最后一个参数一定要记得算上null结束符！！</h3><h3 id="注2：使用-strlen-函数带来的返回值里面-不包含-结束符null。"><a href="#注2：使用-strlen-函数带来的返回值里面-不包含-结束符null。" class="headerlink" title="注2：使用 strlen() 函数带来的返回值里面 不包含 结束符null。"></a>注2：使用 <em>strlen()</em> 函数带来的返回值里面 <strong>不包含</strong> 结束符null。</h3><h2 id="创建动态数组"><a href="#创建动态数组" class="headerlink" title="创建动态数组"></a>创建动态数组</h2><p>通过 <em>new</em> 和 <em>delete</em> 分配的变量在堆上。有两种办法</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> *pia = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">10</span>]; <span class="comment">//创建了一个10个元素的没有被初始化的数组</span></span><br><span class="line"><span class="keyword">int</span> *pia2 = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">10</span>](); <span class="comment">//创建了一个10个元素的，被初始化成0的数组</span></span><br></pre></td></tr></table></figure>
+<p>尤其是当数组为 <em>const</em> 数组时，两种语句的差距才体现出来。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> *pci_bad = <span class="keyword">new</span> <span class="keyword">const</span> <span class="keyword">int</span>[<span class="number">100</span>]; <span class="comment">//不行，因为const数组的元素没有被初始化</span></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> *pci_ok = <span class="keyword">new</span> <span class="keyword">const</span> <span class="keyword">int</span>[<span class="number">100</span>](); <span class="comment">//行，const数组的元素被初始化了</span></span><br></pre></td></tr></table></figure>
+<p>回收动态数组的空间时，使用 <em>delete [ ] pointer</em> 的语句。其中 <strong><em>[ ]</em></strong> 一定不能漏掉。否则编译器不报错但是运行时也要报错。</p>
+<h2 id="新旧代码的兼容"><a href="#新旧代码的兼容" class="headerlink" title="新旧代码的兼容"></a>新旧代码的兼容</h2><p><em>string</em> 类中提供了一个 <em>c_str</em>() 方法来将 <em>string</em> 类的字符串转换成 *const char ** 的格式。如  </p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="built_in">string</span> <span class="title">st2</span><span class="params">(<span class="string">"something"</span>)</span></span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">char</span> *str = st2.c_str(); <span class="comment">//注意前面必须是const</span></span><br></pre></td></tr></table></figure>
+<h2 id="使用数组初始化-vector-对象"><a href="#使用数组初始化-vector-对象" class="headerlink" title="使用数组初始化 vector 对象"></a>使用数组初始化 <em>vector</em> 对象</h2><p>使用数组初始化 <em>vector</em> 对象，必须指出用于初始化式的第一个元素以及最后一个元素的<strong>下一位置</strong>的地址。如下</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="keyword">size_t</span> arr_size = <span class="number">6</span>;</span><br><span class="line"><span class="keyword">int</span> int_arr[arr_size] = &#123;<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span> ,<span class="number">5</span>&#125;;</span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; ivec(int_arr, int_arr + arr_size);</span><br></pre></td></tr></table></figure>
+<h3 id="注：此处的“第一个元素”并不代表数组的首元素！"><a href="#注：此处的“第一个元素”并不代表数组的首元素！" class="headerlink" title="注：此处的“第一个元素”并不代表数组的首元素！"></a>注：此处的“第一个元素”并不代表数组的首元素！</h3>
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/C-Primer/" rel="tag"># C++ Primer</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2021/05/02/随笔1/" rel="next" title="随笔1">
+                <i class="fa fa-chevron-left"></i> 随笔1
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2021/05/03/数组/" rel="prev" title="数组">
+                数组 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC80MDA2Ni8xNjU5Mw=="></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/./images/avatar/avatar.jpg"
+                alt="凌波小燕子" />
+            
+              <p class="site-author-name" itemprop="name">凌波小燕子</p>
+              <p class="site-description motion-element" itemprop="description">Talk less and do more.</p>
+          </div>
+
+
+          
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">19</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/hsdgawrk" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://weibo.com/u/3248548900" target="_blank" title="新浪微博">
+                      
+                        <i class="fa fa-fw fa-weibo"></i>新浪微博</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#数组和指针"><span class="nav-number">1.</span> <span class="nav-text">数组和指针</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#指针的定义和初始化"><span class="nav-number">1.1.</span> <span class="nav-text">指针的定义和初始化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#另一种指针声明风格"><span class="nav-number">1.2.</span> <span class="nav-text">另一种指针声明风格</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#注：未初始化的指针是无效的（但是语法允许），初始化为0值的指针代表的是它不指向任何对象。区别于引用，没有初始化的引用是错误-的"><span class="nav-number">1.2.1.</span> <span class="nav-text">注：未初始化的指针是无效的（但是语法允许），初始化为0值的指针代表的是它不指向任何对象。区别于引用，没有初始化的引用是错误 的</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#注2-最佳实践-：如果可能的话，除非所指向的对象已经存在，否则不要先定义指针，这样可以避免定义一个未初始化的指针；如果必须分开定义的话，一定要将指针初始化为0。"><span class="nav-number">1.2.2.</span> <span class="nav-text">注2[最佳实践]：如果可能的话，除非所指向的对象已经存在，否则不要先定义指针，这样可以避免定义一个未初始化的指针；如果必须分开定义的话，一定要将指针初始化为0。</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#void-指针"><span class="nav-number">1.3.</span> <span class="nav-text">*void **指针</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#指针的算数操作"><span class="nav-number">1.4.</span> <span class="nav-text">指针的算数操作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#下标和指针"><span class="nav-number">1.5.</span> <span class="nav-text">下标和指针</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#注：C-允许计算数组或对象的超出末端地址，但是-不能-对其解引用。计算超出末端地址或者数组首地址之前的地址都是不合法的！"><span class="nav-number">1.5.1.</span> <span class="nav-text">注：C++允许计算数组或对象的超出末端地址，但是 不能 对其解引用。计算超出末端地址或者数组首地址之前的地址都是不合法的！</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#指针和-const-限定符"><span class="nav-number">1.6.</span> <span class="nav-text">指针和 const 限定符</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#指针和-typedef"><span class="nav-number">1.7.</span> <span class="nav-text">指针和 typedef</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#C风格字符串"><span class="nav-number">1.8.</span> <span class="nav-text">C风格字符串</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#注：每次执行复制或者拼接操作时，最后一个参数一定要记得算上null结束符！！"><span class="nav-number">1.8.1.</span> <span class="nav-text">注：每次执行复制或者拼接操作时，最后一个参数一定要记得算上null结束符！！</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#注2：使用-strlen-函数带来的返回值里面-不包含-结束符null。"><span class="nav-number">1.8.2.</span> <span class="nav-text">注2：使用 strlen() 函数带来的返回值里面 不包含 结束符null。</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#创建动态数组"><span class="nav-number">1.9.</span> <span class="nav-text">创建动态数组</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#新旧代码的兼容"><span class="nav-number">1.10.</span> <span class="nav-text">新旧代码的兼容</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用数组初始化-vector-对象"><span class="nav-number">1.11.</span> <span class="nav-text">使用数组初始化 vector 对象</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#注：此处的“第一个元素”并不代表数组的首元素！"><span class="nav-number">1.11.1.</span> <span class="nav-text">注：此处的“第一个元素”并不代表数组的首元素！</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        ﻿<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">凌波小燕子</span>
+
+  
+</div>
+<div class="powered-by">
+
+<i class="fa fa-user-md"></i>
+<!--<span id="busuanzi_container_site_uv">
+  本站总访问量<span id="busuanzi_value_site_uv"></span>次
+</span>-->
+</span>
+
+</div>
+
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动
+<a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=37011202000773" style="display:inline-block;text-decoration:none;height:20px;line-height:20px;"><img src="" style="float:left;"/><p style="float:left;height:20px;line-height:20px;margin: 0px 0px 0px 5px; color:#939393;">鲁公网安备 37011202000773号</p></a>
+</div>
+
+<!--
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.4</div>
+
+-->
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/three.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/canvas_sphere.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
